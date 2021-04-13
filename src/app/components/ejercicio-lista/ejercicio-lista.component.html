@@ -1,5 +1,26 @@
 <p>ejercicio-lista works!</p>
 
-<p *ngFor="let tempEjercicio of ejercicios">
-    {{ tempEjercicio.nombre}}: {{ tempEjercicio.descripcionCorta}}
-</p>
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::  -->
+<!-- ::::::::::::      TABLE       ::::::::::::  -->
+<!-- ::::::::::::::::::::::::::::::::::::::::::  -->
+
+<!-- <div class="container-fluid" id="logo-container"> -->
+<div class="container">
+    <table class="table table-light table-bordered table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Entrenador</th>
+                <th scope="col">Creado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tempEjercicio of ejercicios">
+                <td>{{ tempEjercicio.nombre}}</td>
+                <td>LozanoFit</td>
+                <td>{{ tempEjercicio.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>					
+</div>

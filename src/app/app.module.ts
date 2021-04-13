@@ -7,8 +7,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { EjercicioListaComponent } from './components/ejercicio-lista/ejercicio-lista.component';
 import { EntrenadorListaComponent } from './components/entrenador-lista/entrenador-lista.component';
-
 import { HttpClientModule } from '@angular/common/http';
+import {Routes, RouterModule} from '@angular/router';
+
+const routes: Routes = [
+  {path: 'ejercicios', component: EjercicioListaComponent},
+  {path: 'main', component: MainContentComponent},
+  {path: '', redirectTo: '/main', pathMatch: 'full'},
+  {path: '**', redirectTo: '/main', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
@@ -21,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
