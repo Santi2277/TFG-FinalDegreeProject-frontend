@@ -4,11 +4,10 @@
         <div class="w-50"><h4>Nuevas entradas:</h4></div>
         
     <div class="w-25 ">
-    <select class="form-select form-select-sm" aria-label="Default select example">
-          <option selected>Tipo</option>
-          <option value="1">Ejercicios</option>
-          <option value="2">Rutinas</option>
-          <option value="3">Entrenadores</option>
+    <select class="form-select form-select-sm" #sel (change)="navigateTo(sel.value)">
+          <option selected value="ejercicios">Ejercicios</option>
+          <option value="rutinas">Rutinas</option>
+          <option value="entrenadores">Entrenadores</option>
     </select>
     </div>
         
@@ -22,42 +21,39 @@
     </div>
 </div>
 
-
-
-
-
 <!-- ::::::::::::::::::::::::::::::::::::::::::  -->
 <!-- ::::::::::::      TABLE       ::::::::::::  -->
 <!-- ::::::::::::::::::::::::::::::::::::::::::  -->
 
 <!-- <div class="container-fluid" id="logo-container"> -->
-<div class="container">
-<table class="table table-light table-bordered table-sm">
- <thead>
-<tr>
-  <th scope="col">Nombre</th>
-  <th scope="col">Entrenador</th>
-  <th scope="col">Creado</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Curl Banco Scott</td>
-  <td>LozanoFit</td>
-  <td>2021-03-09</td>
-</tr>
-<tr>      
-  <td>Superabdominales</td>
-  <td>LozanoFit</td>
-  <td>2021-03-09</td>
-</tr>
-<tr>
-  <td>Glute Bridge</td>
-    <td>MujeresFit</td>
-  <td>2021-02-08</td>
-</tr>
-</tbody>
-</table>					
-    </div>
+    <div class="container">
+        <table class="table table-light table-bordered table-sm">
+         <thead>
+        <tr>
+          <th scope="col">Nombre de Ejercicio</th>
+          <th scope="col">Entrenador</th>
+          <th scope="col">Creado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Curl Banco Scott</td>
+          <td>LozanoFit</td>
+          <td>2021-03-09</td>
+        </tr>
+        <tr>      
+          <td>Superabdominales</td>
+          <td>LozanoFit</td>
+          <td>2021-03-09</td>
+        </tr>
+        <tr>
+          <td>Glute Bridge</td>
+            <td>MujeresFit</td>
+          <td>2021-02-08</td>
+        </tr>
+        </tbody>
+        </table>					
+            </div>
+
 
 

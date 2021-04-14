@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-main-content',
-  templateUrl: './main-content.component.html',
-  styleUrls: ['./main-content.component.css']
+  selector: 'app-rutina-lista',
+  templateUrl: './rutina-lista.component.html',
+  styleUrls: ['./rutina-lista.component.css']
 })
-export class MainContentComponent implements OnInit {
+export class RutinaListaComponent implements OnInit {
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
   navigateTo(value: string) {
     if (value==="ejercicios") {
         this.router.navigateByUrl('/main');

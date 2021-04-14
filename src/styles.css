@@ -25,3 +25,23 @@ body {
       height: 30px;
       
   }
+  .back-button:link{
+        color: grey;
+        background-color: transparent;
+        text-decoration: none;
+  }
+  .back-button:visited{
+    color: grey;
+    background-color: transparent;
+    text-decoration: none;
+}
+.back-button:hover{
+    color: grey;
+    background-color: transparent;
+    text-decoration: none;
+}
+.back-button:active{
+    color: grey;
+    background-color: transparent;
+    text-decoration: none;
+}

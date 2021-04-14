@@ -6,8 +6,8 @@
   <div class="w-25 ">
   <select class="form-select form-select-sm" #sel (change)="navigateTo(sel.value)">
         <option value="ejercicios">Ejercicios</option>
-        <option value="rutinas">Rutinas</option>
-        <option selected value="entrenadores">Entrenadores</option>
+        <option selected value="rutinas">Rutinas</option>
+        <option value="entrenadores">Entrenadores</option>
   </select>
   </div>
       
@@ -29,25 +29,25 @@
         <table class="table table-light table-bordered table-sm">
          <thead>
         <tr>
-          <th scope="col">Nombre de Entrenador</th>
-          <th scope="col">Info</th>
+          <th scope="col">Nombre de Rutina</th>
+          <th scope="col">Entrenador</th>
           <th scope="col">Creado</th>
         </tr>
         </thead>
         <tbody>
         <tr>
+          <td>3 días nivel medio</td>
           <td>LozanoFit</td>
-          <td>Musculación Variada</td>
           <td>2021-03-09</td>
         </tr>
         <tr>      
-          <td>MujeresFit</td>
-          <td>Ponte en forma</td>
+          <td>3 días desde casa nivel medio</td>
+          <td>LozanoFit</td>
           <td>2021-03-09</td>
         </tr>
         <tr>
-          <td>GlúteosFit</td>
-            <td>Entrena tu glúteo</td>
+          <td>Cardio a tope</td>
+            <td>MujeresFit</td>
           <td>2021-02-08</td>
         </tr>
         </tbody>
