@@ -25,25 +25,31 @@
 
         <div formGroupName="parametro1" class="form-area">
             <div class="mb-3 row">
+                
+                
+
                 <label class="col-sm-2 col-form-label">Parametro 1</label>
                 <div class="col-sm-4">
-                    <select class="form-select" formControlName="parametro1">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" formControlName="parametro1" #sel (change)="onChangeP1(sel.value)">
+                        <option selected value="blank"></option>
+                        <option *ngFor="let tempParametro of parametros1">{{ tempParametro.nombre}}</option>
                     </select>
                 </div>
+                
+
+
                 <label class="col-sm-2 col-form-label">Parametro Grupo 1</label>
                 <div class="col-sm-4">
                     <select class="form-select" formControlName="parametrogrupo1">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected value="blank"></option>
+                        <option [ngValue]="tempParametroGrupo" *ngFor="let tempParametroGrupo of parametroGrupos1">{{ tempParametroGrupo.nombre}}</option>
+                        
                     </select>
                 </div>
             </div>
+
+
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Parametro Valor 1</label>
                 <div class="col-sm-4">

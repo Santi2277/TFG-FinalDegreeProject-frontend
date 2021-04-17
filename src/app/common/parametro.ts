@@ -10,4 +10,5 @@ export class Parametro {
     fechaModificacion: Date;
     creador: Perfil;
     modificador: Perfil;
+
 }
