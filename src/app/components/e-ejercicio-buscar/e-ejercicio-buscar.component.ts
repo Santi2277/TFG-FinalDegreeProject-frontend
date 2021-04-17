@@ -83,7 +83,7 @@ export class EEjercicioBuscarComponent implements OnInit {
   }
 
   listParametroGrupos1() {
-    this.parametroGrupoService.getParametroGrupoList().subscribe(
+    this.parametroGrupoService.getParametroGrupoByFatherList(3).subscribe(
       data => {
         this.parametroGrupos1 = data;
       }

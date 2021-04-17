@@ -18,6 +18,15 @@ export class ParametroGrupoService {
       map(response => response._embedded.parametroGrupoes)
     );
   }
+
+  getParametroGrupoByFatherList(parametroId: number): Observable<ParametroGrupo[]> {
+    return this.httpClient.get<GetResponse>(this.baseUrl+"/search/buscarParametroGrupoDeParametro?idParametro="+parametroId).pipe(
+      map(response => response._embedded.parametroGrupoes)
+    );
+  }
+
+
+
 }
 
 interface GetResponse {
