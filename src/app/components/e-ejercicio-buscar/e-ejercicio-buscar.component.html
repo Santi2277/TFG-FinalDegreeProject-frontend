@@ -32,7 +32,7 @@
                 <div class="col-sm-4">
                     <select class="form-select" formControlName="parametro1" #sel (change)="onChangeP1(sel.value)">
                         <option selected value="blank"></option>
-                        <option *ngFor="let tempParametro of parametros1">{{ tempParametro.nombre}}</option>
+                        <option *ngFor="let tempParametro of parametros1" value="{{ tempParametro.id}}">{{ tempParametro.nombre}}</option>
                     </select>
                 </div>
                 

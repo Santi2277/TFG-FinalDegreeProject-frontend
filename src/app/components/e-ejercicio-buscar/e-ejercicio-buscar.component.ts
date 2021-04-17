@@ -82,8 +82,8 @@ export class EEjercicioBuscarComponent implements OnInit {
     )
   }
 
-  listParametroGrupos1() {
-    this.parametroGrupoService.getParametroGrupoByFatherList(3).subscribe(
+  listParametroGrupos1(value: number) {
+    this.parametroGrupoService.getParametroGrupoByFatherList(value).subscribe(
       data => {
         this.parametroGrupos1 = data;
       }
@@ -103,12 +103,13 @@ export class EEjercicioBuscarComponent implements OnInit {
     if(value!=="blank"){
       //update parameter group list 1
       console.log("Modificando parametro grupos 1 - después de cambio en parametros 1 selección");
-      this.listParametroGrupos1();
+      this.listParametroGrupos1(Number(value));
+      
       
 
     }else{
       //leave the parameter group list 1 blank
-
+      this.parametroGrupos1 = [];
     }
     
     
