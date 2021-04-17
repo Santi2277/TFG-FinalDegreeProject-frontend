@@ -1,3 +1,6 @@
+import { EjercicioGrupo } from "./ejerciciogrupo";
+import { Perfil } from "./perfil";
+
 export class Ejercicio {
         id: number;
         nombre: string;
@@ -7,4 +10,7 @@ export class Ejercicio {
         core: boolean;
         fechaCreacion: Date;
         fechaModificacion: Date;
+        ejercicioGrupo: EjercicioGrupo;
+        creador: Perfil;
+        modificador: Perfil;
 }

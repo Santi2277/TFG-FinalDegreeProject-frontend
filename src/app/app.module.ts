@@ -21,6 +21,7 @@ import { EntrenadorMedidaMedidavalorComponent } from './components/entrenador-me
 import { EntrenadorComponent } from './components/entrenador/entrenador.component';
 import { RutinaListaComponent } from './components/rutina-lista/rutina-lista.component';
 import { EjercicioComponent } from './components/ejercicio/ejercicio.component';
+import { EEjercicioBuscarComponent } from './components/e-ejercicio-buscar/e-ejercicio-buscar.component';
 
 const routes: Routes = [
   {path: 'ejercicios', component: EjercicioListaComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'entrenador/medida/medidaunidad', component: EntrenadorMedidaMedidaunidadComponent},
   {path: 'entrenador/medida/medidavalor', component: EntrenadorMedidaMedidavalorComponent},
   {path: 'entrenador/panel', component: EntrenadorComponent},
+  {path: 'entrenador/ejercicio/buscar', component: EEjercicioBuscarComponent},
   {path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -61,7 +63,8 @@ const routes: Routes = [
     EntrenadorMedidaMedidavalorComponent,
     EntrenadorComponent,
     RutinaListaComponent,
-    EjercicioComponent
+    EjercicioComponent,
+    EEjercicioBuscarComponent
   ],
   imports: [
     BrowserModule,
