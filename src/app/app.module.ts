@@ -22,6 +22,7 @@ import { EntrenadorComponent } from './components/entrenador/entrenador.componen
 import { RutinaListaComponent } from './components/rutina-lista/rutina-lista.component';
 import { EjercicioComponent } from './components/ejercicio/ejercicio.component';
 import { EEjercicioBuscarComponent } from './components/e-ejercicio-buscar/e-ejercicio-buscar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'ejercicios', component: EjercicioListaComponent},
@@ -70,7 +71,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
