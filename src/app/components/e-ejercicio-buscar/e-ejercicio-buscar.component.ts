@@ -90,6 +90,17 @@ export class EEjercicioBuscarComponent implements OnInit {
   }
 
 
+  listEjerciciosAdvanced(nombre: string, descripcion: string, entrenador: string, parametrovalor1: string, parametrosubvalor1: string, parametrovalor2: string, parametrosubvalor2: string, parametrovalor3: string, parametrosubvalor3: string ) {
+    this.ejercicioService.getEjercicioAdvancedList(nombre, descripcion, entrenador, parametrovalor1, parametrosubvalor1, parametrovalor2, parametrosubvalor2, parametrovalor3, parametrosubvalor3).subscribe(
+      data => {
+        this.ejercicios = data;
+      }
+    )
+  }
+
+  
+
+
 
   listParametros1() {
     this.parametroService.getParametroList().subscribe(
@@ -195,7 +206,44 @@ export class EEjercicioBuscarComponent implements OnInit {
     console.log("Parametro Valor 1: "+this.checkoutFormGroup.get('parametro1.parametrovalor1')?.value.id);
     console.log("Parametro Subvalor 1: "+this.checkoutFormGroup.get('parametro1.parametrosubvalor1')?.value.id);
 
+    var nombre : string = this.checkoutFormGroup.get('general.nombre')?.value;
+    var descripcion : string = this.checkoutFormGroup.get('general.descripcion')?.value;
+    var entrenador : string = this.checkoutFormGroup.get('general.entrenadorNick')?.value;
 
+    var parametrovalor1 : string = this.checkoutFormGroup.get('parametro1.parametrovalor1')?.value.id;
+    var parametrosubvalor1 : string = this.checkoutFormGroup.get('parametro1.parametrosubvalor1')?.value.id;
+    
+    var parametrovalor2 : string = this.checkoutFormGroup.get('parametro2.parametrovalor2')?.value.id;
+    var parametrosubvalor2 : string = this.checkoutFormGroup.get('parametro2.parametrosubvalor2')?.value.id; 
+
+    var parametrovalor3 : string = this.checkoutFormGroup.get('parametro3.parametrovalor3')?.value.id;
+    var parametrosubvalor3 : string = this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.value.id; 
+
+    console.log("ONSUBMIT part 1 -> nombre: "+nombre+" descr: "+descripcion+" entr: "+entrenador+ " pv1: "+parametrovalor1+ " ps1: "+parametrosubvalor1+ " pv2: "+parametrovalor2+ " ps2: "+parametrosubvalor2+ " pv3: "+parametrovalor3+ " ps3 "+parametrosubvalor3);
+
+    //don't pass undefined, pass "" instead
+    if(parametrovalor1 === undefined){
+      parametrovalor1 = "";
+    }
+    if(parametrosubvalor1 === undefined){
+      parametrosubvalor1 = "";
+    }
+    if(parametrovalor2 === undefined){
+      parametrovalor2 = "";
+    }
+    if(parametrosubvalor2 === undefined){
+      parametrosubvalor2 = "";
+    }
+    if(parametrovalor3 === undefined){
+      parametrovalor3 = "";
+    }
+    if(parametrosubvalor3 === undefined){
+      parametrosubvalor3 = "";
+    }
+
+    console.log("ONSUBMIT part 2 -> nombre: "+nombre+" descr: "+descripcion+" entr: "+entrenador+ " pv1: "+parametrovalor1+ " ps1: "+parametrosubvalor1+ " pv2: "+parametrovalor2+ " ps2: "+parametrosubvalor2+ " pv3: "+parametrovalor3+ " ps3 "+parametrosubvalor3);
+
+    this.listEjerciciosAdvanced(nombre, descripcion, entrenador, parametrovalor1, parametrosubvalor1, parametrovalor2, parametrosubvalor2, parametrovalor3, parametrosubvalor3);
 
 
 
