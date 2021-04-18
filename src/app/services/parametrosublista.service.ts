@@ -15,13 +15,21 @@ export class ParametroSublistaService {
 
   getParametroSublistaList(): Observable<ParametroSublista[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
-      map(response => response._embedded.parametrosublistas)
+      map(response => response._embedded.parametroSublistas)
     );
   }
+
+  getParametroSublistaByFatherList(parametroValorId: number): Observable<ParametroSublista[]> {
+    return this.httpClient.get<GetResponse>(this.baseUrl+"/search/buscarParametroSublistaDeParametroLista?idParametroLista="+parametroValorId).pipe(
+      map(response => response._embedded.parametroSublistas)
+    );
+  }
+
+
 }
 
 interface GetResponse {
   _embedded: {
-    parametrosublistas: ParametroSublista[];
+    parametroSublistas: ParametroSublista[];
   }
 }

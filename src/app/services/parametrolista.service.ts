@@ -15,13 +15,21 @@ export class ParametroListaService {
 
   getParametroListaList(): Observable<ParametroLista[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
-      map(response => response._embedded.parametrolistas)
+      map(response => response._embedded.parametroListas)
     );
   }
+
+  getParametroListaByFatherList(parametroGrupoId: number): Observable<ParametroLista[]> {
+    return this.httpClient.get<GetResponse>(this.baseUrl+"/search/buscarParametroListaDeParametroGrupo?idParametroGrupo="+parametroGrupoId).pipe(
+      map(response => response._embedded.parametroListas)
+    );
+  }
+
+
 }
 
 interface GetResponse {
   _embedded: {
-    parametrolistas: ParametroLista[];
+    parametroListas: ParametroLista[];
   }
 }

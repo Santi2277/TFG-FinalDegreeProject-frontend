@@ -45,3 +45,7 @@ body {
     background-color: transparent;
     text-decoration: none;
 }
+
+#eeb-formgroup-parametro-3 {
+    display: none;
+}

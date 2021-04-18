@@ -27,6 +27,8 @@ export class EEjercicioBuscarComponent implements OnInit {
 
   checkoutFormGroup: FormGroup;
 
+  selectedValue: boolean = false;
+
   constructor(private ejercicioService: EjercicioService, private parametroService: ParametroService, private parametroGrupoService: ParametroGrupoService, private parametroListaService: ParametroListaService, private parametroSublistaService: ParametroSublistaService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -90,6 +92,22 @@ export class EEjercicioBuscarComponent implements OnInit {
     )
   }
 
+  listParametroListas1(value: number) {
+    this.parametroListaService.getParametroListaByFatherList(value).subscribe(
+      data => {
+        this.parametroValores1 = data;
+      }
+    )
+  }
+
+  listParametroSublistas1(value: number) {
+    this.parametroSublistaService.getParametroSublistaByFatherList(value).subscribe(
+      data => {
+        this.parametroSubvalores1 = data;
+      }
+    )
+  }
+
 
 
   onSubmit(){
@@ -102,17 +120,53 @@ export class EEjercicioBuscarComponent implements OnInit {
   onChangeP1(value: string){
     if(value!=="blank"){
       //update parameter group list 1
-      console.log("Modificando parametro grupos 1 - después de cambio en parametros 1 selección");
+      console.log("onChangeP1 - value = "+value);
       this.listParametroGrupos1(Number(value));
-      
-      
 
     }else{
       //leave the parameter group list 1 blank
       this.parametroGrupos1 = [];
+      this.parametroValores1 = [];
+      this.parametroSubvalores1 = [];
+      this.selectedValue = false;
+
     }
+  }
+
+  onChangePG1(value: string){
+    if(value!=="blank"){
+      //update parameter value list 1
+      console.log("onChangePG1 - value = "+value);
+
+      this.listParametroListas1(Number(value));
+      
+      //bug correction, missing remove parameters but cannot be here
+      this.selectedValue = false;
+      this.parametroSubvalores1 = [];
+
+    }else{
+      //leave the parameter value list 1 blank
+      this.parametroValores1 = [];
+      this.parametroSubvalores1 = [];
+      this.selectedValue = false;
+    }
+  }
+
+  onChangePV1(value: string){
     
-    
+    if(value!=="blank"){
+      //update parameter value list 1
+      console.log("onChangePV1 - value = "+value);
+      var numberSplit = value.split(":"); 
+      this.listParametroSublistas1(Number(numberSplit[0]));
+      this.selectedValue = true;
+
+    }else{
+      //leave the parameter subvalue list 1 blank
+      this.parametroSubvalores1 = [];
+      this.selectedValue = false;
+
+    }
   }
 
 }
