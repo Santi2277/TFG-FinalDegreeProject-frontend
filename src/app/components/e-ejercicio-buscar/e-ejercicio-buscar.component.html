@@ -31,7 +31,7 @@
                 <label class="col-sm-2 col-form-label">Parametro 1</label>
                 <div class="col-sm-4">
                     <select class="form-select" formControlName="parametro1" #sel (change)="onChangeP1(sel.value)">
-                        <option selected value="blank"></option>
+                        <option selected value=""></option>
                         <option *ngFor="let tempParametro of parametros1" value="{{ tempParametro.id}}">{{ tempParametro.nombre}}</option>
                     </select>
                 </div>
@@ -39,7 +39,7 @@
                 <label class="col-sm-2 col-form-label">Parametro Grupo 1</label>
                 <div class="col-sm-4">
                     <select class="form-select" formControlName="parametrogrupo1" #sel (change)="onChangePG1(sel.value)">
-                        <option selected value="blank"></option>
+                        <option selected value=""></option>
                         <option [ngValue]="tempParametroGrupo" *ngFor="let tempParametroGrupo of parametroGrupos1" value="{{ tempParametroGrupo.id}}">{{ tempParametroGrupo.nombre}}</option>
                         
                     </select>
@@ -50,7 +50,7 @@
                 <label class="col-sm-2 col-form-label">Parametro Valor 1</label>
                 <div class="col-sm-4">
                     <select class="form-select" formControlName="parametrovalor1" #selpv1 (change)="onChangePV1(selpv1.value)">
-                        <option selected value="blank"></option>
+                        <option selected value=""></option>
                         <option [ngValue]="tempParametroValor" *ngFor="let tempParametroValor of parametroValores1" value="{{ tempParametroValor.id}}">{{ tempParametroValor.nombre}}</option>
                     </select>
                 </div>
@@ -59,7 +59,7 @@
                     <label class="col-sm-2 col-form-label">Parametro Subvalor 1</label>
                     <div class="col-sm-4">
                         <select class="form-select" formControlName="parametrosubvalor1">
-                            <option selected value="blank"></option>
+                            <option selected value=""></option>
                             <option [ngValue]="tempParametroSubvalor" *ngFor="let tempParametroSubvalor of parametroSubvalores1">{{ tempParametroSubvalor.nombre}}</option>
                         </select>
                     </div>
@@ -68,26 +68,23 @@
         </div>
         
 
-        <div formGroupName="parametro2" class="form-area" id="eeb-formgroup-parametro-2" *ngIf="selectedValue">
+        <div formGroupName="parametro2" class="form-area" id="eeb-formgroup-parametro-2" *ngIf="selectedValue1">
             <div class="mb-3 row">
 
                 <label class="col-sm-2 col-form-label">Parametro 2</label>
                 <div class="col-sm-4">
-                    <select class="form-select" formControlName="parametro2">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" formControlName="parametro2" #sel (change)="onChangeP2(sel.value)">
+                        <option selected value=""></option>
+                        <option *ngFor="let tempParametro of parametros2" value="{{ tempParametro.id}}">{{ tempParametro.nombre}}</option>
                     </select>
                 </div>
 
                 <label class="col-sm-2 col-form-label">Parametro Grupo 2</label>
                 <div class="col-sm-4">
-                    <select class="form-select" formControlName="parametrogrupo2">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" formControlName="parametrogrupo2" #sel (change)="onChangePG2(sel.value)">
+                        <option selected value=""></option>
+                        <option [ngValue]="tempParametroGrupo" *ngFor="let tempParametroGrupo of parametroGrupos2" value="{{ tempParametroGrupo.id}}">{{ tempParametroGrupo.nombre}}</option>
+                        
                     </select>
                 </div>
             </div>
@@ -95,11 +92,9 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Parametro Valor 2</label>
                 <div class="col-sm-4">
-                    <select class="form-select" formControlName="parametrovalor2">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" formControlName="parametrovalor2" #selpv2 (change)="onChangePV2(selpv2.value)">
+                        <option selected value=""></option>
+                        <option [ngValue]="tempParametroValor" *ngFor="let tempParametroValor of parametroValores2" value="{{ tempParametroValor.id}}">{{ tempParametroValor.nombre}}</option>
                     </select>
                 </div>
 
@@ -107,10 +102,8 @@
                     <label class="col-sm-2 col-form-label">Parametro Subvalor 2</label>
                     <div class="col-sm-4">
                         <select class="form-select" formControlName="parametrosubvalor2">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option selected value=""></option>
+                            <option [ngValue]="tempParametroSubvalor" *ngFor="let tempParametroSubvalor of parametroSubvalores2">{{ tempParametroSubvalor.nombre}}</option>
                         </select>
                     </div>
                 
@@ -118,26 +111,22 @@
         </div> 
 
 
-        <div formGroupName="parametro3" class="form-area" id="eeb-formgroup-parametro-3">
+        <div formGroupName="parametro3" class="form-area" id="eeb-formgroup-parametro-3"  *ngIf="selectedValue2">
             <div class="mb-3 row">
 
                 <label class="col-sm-2 col-form-label">Parametro 3</label>
                 <div class="col-sm-4">
-                    <select class="form-select" formControlName="parametro3">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" formControlName="parametro3" #sel (change)="onChangeP3(sel.value)">
+                        <option selected value=""></option>
+                        <option *ngFor="let tempParametro of parametros3" value="{{ tempParametro.id}}">{{ tempParametro.nombre}}</option>
                     </select>
                 </div>
 
                 <label class="col-sm-2 col-form-label">Parametro Grupo 3</label>
                 <div class="col-sm-4">
-                    <select class="form-select" formControlName="parametrogrupo3">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" formControlName="parametrogrupo3" #sel (change)="onChangePG3(sel.value)">
+                        <option selected value=""></option>
+                        <option [ngValue]="tempParametroGrupo" *ngFor="let tempParametroGrupo of parametroGrupos3" value="{{ tempParametroGrupo.id}}">{{ tempParametroGrupo.nombre}}</option>
                     </select>
                 </div>
             </div>
@@ -145,11 +134,9 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Parametro Valor 3</label>
                 <div class="col-sm-4">
-                    <select class="form-select" formControlName="parametrovalor3">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" formControlName="parametrovalor3" #selpv3 (change)="onChangePV3(selpv3.value)">
+                        <option selected value=""></option>
+                        <option [ngValue]="tempParametroValor" *ngFor="let tempParametroValor of parametroValores3" value="{{ tempParametroValor.id}}">{{ tempParametroValor.nombre}}</option>
                     </select>
                 </div>
 
@@ -157,10 +144,8 @@
                     <label class="col-sm-2 col-form-label">Parametro Subvalor 3</label>
                     <div class="col-sm-4">
                         <select class="form-select" formControlName="parametrosubvalor3">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option selected value=""></option>
+                            <option [ngValue]="tempParametroSubvalor" *ngFor="let tempParametroSubvalor of parametroSubvalores3">{{ tempParametroSubvalor.nombre}}</option>
                         </select>
                     </div>
                 
