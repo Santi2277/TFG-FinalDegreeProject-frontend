@@ -259,14 +259,17 @@ export class EEjercicioBuscarComponent implements OnInit {
       //update parameter group list 1
       console.log("onChangeP1 - value = "+value);
       this.listParametroGrupos1(Number(value));
-      this.parametroValores1 = [];
-      this.parametroSubvalores1 = [];
+      
     }else{
       //leave the parameter group list 1 blank
       this.parametroGrupos1 = [];
-      this.parametroValores1 = [];
-      this.parametroSubvalores1 = [];
+      this.checkoutFormGroup.get('parametro1.parametrogrupo1')?.setValue('');
+      
     }
+    this.parametroValores1 = [];
+    this.parametroSubvalores1 = [];
+    this.checkoutFormGroup.get('parametro1.parametrovalor1')?.setValue('');
+    this.checkoutFormGroup.get('parametro1.parametrosubvalor1')?.setValue('');
     this.selectedValue1 = false;
     this.selectedValue2 = false;
     this.parametroValores2 = [];
@@ -275,6 +278,12 @@ export class EEjercicioBuscarComponent implements OnInit {
     this.parametroSubvalores3 = [];
     this.parametroGrupos2 = [];
     this.parametroGrupos3 = [];
+    this.checkoutFormGroup.get('parametro2.parametrogrupo2')?.setValue('');
+    this.checkoutFormGroup.get('parametro2.parametrovalor2')?.setValue('');
+    this.checkoutFormGroup.get('parametro2.parametrosubvalor2')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
 
   }
   onChangePG1(){
@@ -283,12 +292,15 @@ export class EEjercicioBuscarComponent implements OnInit {
       //update parameter value list 1
       console.log("onChangePG1 - value = "+value);
       this.listParametroListas1(Number(value));
-      this.parametroSubvalores1 = [];
+      
     }else{
       //leave the parameter value list 1 blank
       this.parametroValores1 = [];
-      this.parametroSubvalores1 = [];
+      this.checkoutFormGroup.get('parametro1.parametrovalor1')?.setValue('');
+      
     }
+    this.parametroSubvalores1 = [];
+    this.checkoutFormGroup.get('parametro1.parametrosubvalor1')?.setValue('');
     this.selectedValue1 = false;
     this.selectedValue2 = false;
     this.parametroValores2 = [];
@@ -297,6 +309,12 @@ export class EEjercicioBuscarComponent implements OnInit {
     this.parametroSubvalores3 = [];
     this.parametroGrupos2 = [];
     this.parametroGrupos3 = [];
+    this.checkoutFormGroup.get('parametro2.parametrogrupo2')?.setValue('');
+    this.checkoutFormGroup.get('parametro2.parametrovalor2')?.setValue('');
+    this.checkoutFormGroup.get('parametro2.parametrosubvalor2')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
   }
   onChangePV1(){
     var value : string = ""+this.checkoutFormGroup.get('parametro1.parametrovalor1')?.value.id;
@@ -305,9 +323,9 @@ export class EEjercicioBuscarComponent implements OnInit {
       console.log("onChangePV1 - value = "+value);
       this.listParametroSublistas1(Number(value));
       this.selectedValue1 = true;
+      
     }else{
       //leave the parameter subvalue list 1 blank
-      this.parametroSubvalores1 = [];
       this.selectedValue1 = false;
       this.selectedValue2 = false;
       this.parametroValores2 = [];
@@ -316,7 +334,15 @@ export class EEjercicioBuscarComponent implements OnInit {
       this.parametroSubvalores3 = [];
       this.parametroGrupos2 = [];
       this.parametroGrupos3 = [];
+      this.checkoutFormGroup.get('parametro2.parametrogrupo2')?.setValue('');
+    this.checkoutFormGroup.get('parametro2.parametrovalor2')?.setValue('');
+    this.checkoutFormGroup.get('parametro2.parametrosubvalor2')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
     }
+    this.parametroSubvalores1 = [];
+    this.checkoutFormGroup.get('parametro1.parametrosubvalor1')?.setValue('');
   }
 
 
@@ -328,18 +354,24 @@ export class EEjercicioBuscarComponent implements OnInit {
       //update parameter group list 2
       console.log("onChangeP2 - value = "+value);
       this.listParametroGrupos2(Number(value));
-      this.parametroValores2 = [];
-      this.parametroSubvalores2 = [];
+      
     }else{
       //leave the parameter group list 2 blank
       this.parametroGrupos2 = [];
-      this.parametroValores2 = [];
-      this.parametroSubvalores2 = [];
+      this.checkoutFormGroup.get('parametro2.parametrogrupo2')?.setValue('');
+
     }
+    this.parametroValores2 = [];
+      this.parametroSubvalores2 = [];
+      this.checkoutFormGroup.get('parametro2.parametrovalor2')?.setValue('');
+    this.checkoutFormGroup.get('parametro2.parametrosubvalor2')?.setValue('');
     this.selectedValue2 = false;
     this.parametroValores3 = [];
     this.parametroSubvalores3 = [];
     this.parametroGrupos3 = [];
+    this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
   }
   onChangePG2(){
     var value : string = ""+this.checkoutFormGroup.get('parametro2.parametrogrupo2')?.value.id;
@@ -347,16 +379,22 @@ export class EEjercicioBuscarComponent implements OnInit {
       //update parameter value list 2
       console.log("onChangePG2 - value = "+value);
       this.listParametroListas2(Number(value));
-      this.parametroSubvalores2 = [];
+      
     }else{
       //leave the parameter value list 2 blank
       this.parametroValores2 = [];
-      this.parametroSubvalores2 = [];
+      this.checkoutFormGroup.get('parametro2.parametrovalor2')?.setValue('');
+      
     }
+    this.parametroSubvalores2 = [];
+    this.checkoutFormGroup.get('parametro2.parametrosubvalor2')?.setValue('');
     this.selectedValue2 = false;
     this.parametroValores3 = [];
     this.parametroSubvalores3 = [];
     this.parametroGrupos3 = [];
+    this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
   }
   onChangePV2(){
     var value : string = ""+this.checkoutFormGroup.get('parametro2.parametrovalor2')?.value.id;
@@ -367,12 +405,17 @@ export class EEjercicioBuscarComponent implements OnInit {
       this.selectedValue2 = true;
     }else{
       //leave the parameter subvalue list 2 blank
-      this.parametroSubvalores2 = [];
+      
       this.selectedValue2 = false;
       this.parametroValores3 = [];
       this.parametroSubvalores3 = [];
       this.parametroGrupos3 = [];
+      this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
     }
+    this.parametroSubvalores2 = [];
+    this.checkoutFormGroup.get('parametro2.parametrosubvalor2')?.setValue('');
   }
 
 
@@ -384,14 +427,17 @@ export class EEjercicioBuscarComponent implements OnInit {
       //update parameter group list 3
       console.log("onChangeP3 - value = "+value);
       this.listParametroGrupos3(Number(value));
-      this.parametroValores3 = [];
-      this.parametroSubvalores3 = [];
+      
     }else{
       //leave the parameter group list 3 blank
       this.parametroGrupos3 = [];
-      this.parametroValores3 = [];
-      this.parametroSubvalores3 = [];
+      this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.setValue('');
+    
     }
+    this.parametroValores3 = [];
+    this.parametroSubvalores3 = [];
+    this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
   }
   onChangePG3(){
     var value : string = ""+this.checkoutFormGroup.get('parametro3.parametrogrupo3')?.value.id;
@@ -399,13 +445,17 @@ export class EEjercicioBuscarComponent implements OnInit {
       //update parameter value list 3
       console.log("onChangePG3 - value = "+value);
       this.listParametroListas3(Number(value));
-      this.parametroSubvalores3 = [];
+      
     }else{
       //leave the parameter value list 3 blank
       this.parametroValores3 = [];
-      this.parametroSubvalores3 = [];
+      this.checkoutFormGroup.get('parametro3.parametrovalor3')?.setValue('');
+
     }
+    this.parametroSubvalores3 = [];
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
   }
+
   onChangePV3(){
     var value : string = ""+this.checkoutFormGroup.get('parametro3.parametrovalor3')?.value.id;
     if(value!=="" && value !== "undefined"){
@@ -414,8 +464,10 @@ export class EEjercicioBuscarComponent implements OnInit {
       this.listParametroSublistas3(Number(value));
     }else{
       //leave the parameter subvalue list 3 blank
-      this.parametroSubvalores3 = [];
+      
     }
+    this.parametroSubvalores3 = [];
+    this.checkoutFormGroup.get('parametro3.parametrosubvalor3')?.setValue('');
   }
 
 
