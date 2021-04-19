@@ -47,3 +47,7 @@ body {
 }
 
 
+.justify-content-right {
+    display: flex !important;
+    justify-content: right !important;
+}

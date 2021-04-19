@@ -10,6 +10,11 @@ import { Ejercicio } from 'src/app/common/ejercicio';
 export class EjercicioListaComponent implements OnInit {
 
   ejercicios: Ejercicio[];
+
+  //pagination
+  thePageNumber: number = 1;
+  thePageSize: number = 20;
+  theTotalElements: number = 0;
   
   constructor(private ejercicioService: EjercicioService) { }
 
@@ -18,9 +23,12 @@ export class EjercicioListaComponent implements OnInit {
   }
 
   listEjercicios() {
-    this.ejercicioService.getEjercicioList().subscribe(
+    this.ejercicioService.getEjercicioList(this.thePageNumber - 1, this.thePageSize).subscribe(
       data => {
-        this.ejercicios = data;
+        this.ejercicios = data._embedded.ejercicios;
+        this.thePageNumber = data.page.number + 1;
+        this.thePageSize = data.page.size;
+        this.theTotalElements = data.page.totalElements;
       }
     )
   }

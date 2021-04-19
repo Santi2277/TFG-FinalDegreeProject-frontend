@@ -23,6 +23,7 @@ import { RutinaListaComponent } from './components/rutina-lista/rutina-lista.com
 import { EjercicioComponent } from './components/ejercicio/ejercicio.component';
 import { EEjercicioBuscarComponent } from './components/e-ejercicio-buscar/e-ejercicio-buscar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 const routes: Routes = [
   {path: 'ejercicios', component: EjercicioListaComponent},
@@ -72,7 +73,8 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

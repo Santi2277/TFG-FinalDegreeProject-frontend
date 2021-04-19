@@ -5,9 +5,13 @@
 
 <!-- <div class="container-fluid" id="logo-container"> -->
 <div class="container">
+
+    <h4>Listado de Ejercicios:</h4>
+
     <table class="table table-light table-bordered table-sm">
         <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Entrenador</th>
                 <th scope="col">Creado</th>
@@ -15,10 +19,25 @@
         </thead>
         <tbody>
             <tr *ngFor="let tempEjercicio of ejercicios">
+                <td>{{ tempEjercicio.id}}</td>
                 <td>{{ tempEjercicio.nombre}}</td>
-                <td>LozanoFit</td>
+                <td>{{ tempEjercicio.creador.nick}}</td>
                 <td>{{ tempEjercicio.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
             </tr>
         </tbody>
     </table>					
+</div>
+
+
+
+<div class="container">
+    <div class="col-12 justify-content-right">
+        <ngb-pagination [(page)]="thePageNumber"
+                        [pageSize]="thePageSize"
+                        [collectionSize]="theTotalElements"
+                        [maxSize]="20"
+                        [boundaryLinks]="true"
+                        (pageChange)="listEjercicios()">
+        </ngb-pagination>
+    </div>
 </div>

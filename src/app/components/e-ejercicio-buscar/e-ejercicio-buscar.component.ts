@@ -40,12 +40,22 @@ export class EEjercicioBuscarComponent implements OnInit {
   selectedValue1: boolean = false;
   selectedValue2: boolean = false;
 
+  //pagination
+  thePageNumber: number = 1;
+  thePageSize: number = 10;
+  theTotalElements: number = 0;
+
+  
+  
+
+
   constructor(private ejercicioService: EjercicioService, private parametroService: ParametroService, private parametroGrupoService: ParametroGrupoService, private parametroListaService: ParametroListaService, private parametroSublistaService: ParametroSublistaService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     
     //initialize exercicise list / table
     this.listEjercicios();
+    //not done after pagination, search for entries to initialize
 
     //initialize parametros list
     this.listParametros1();
@@ -82,18 +92,24 @@ export class EEjercicioBuscarComponent implements OnInit {
   }
 
   listEjercicios() {
-    this.ejercicioService.getEjercicioList().subscribe(
+    this.ejercicioService.getEjercicioList(this.thePageNumber - 1, this.thePageSize).subscribe(
       data => {
-        this.ejercicios = data;
+        this.ejercicios = data._embedded.ejercicios;
+        this.thePageNumber = data.page.number + 1;
+        this.thePageSize = data.page.size;
+        this.theTotalElements = data.page.totalElements;
       }
     )
   }
 
 
   listEjerciciosAdvanced(nombre: string, descripcion: string, entrenador: string, parametrovalor1: string, parametrosubvalor1: string, parametrovalor2: string, parametrosubvalor2: string, parametrovalor3: string, parametrosubvalor3: string ) {
-    this.ejercicioService.getEjercicioAdvancedList(nombre, descripcion, entrenador, parametrovalor1, parametrosubvalor1, parametrovalor2, parametrosubvalor2, parametrovalor3, parametrosubvalor3).subscribe(
+    this.ejercicioService.getEjercicioAdvancedList(nombre, descripcion, entrenador, parametrovalor1, parametrosubvalor1, parametrovalor2, parametrosubvalor2, parametrovalor3, parametrosubvalor3, this.thePageNumber - 1, this.thePageSize).subscribe(
       data => {
-        this.ejercicios = data;
+        this.ejercicios = data._embedded.ejercicios;
+        this.thePageNumber = data.page.number + 1;
+        this.thePageSize = data.page.size;
+        this.theTotalElements = data.page.totalElements;
       }
     )
   }
