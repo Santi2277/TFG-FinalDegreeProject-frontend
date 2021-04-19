@@ -173,6 +173,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Entrenador</th>
                 <th scope="col">Creado</th>
+                <th scope="col">Detalle</th>
             </tr>
         </thead>
         <tbody>
@@ -181,6 +182,11 @@
                 <td>{{ tempEjercicio.nombre}}</td>
                 <td>{{ tempEjercicio.creador.nick}}</td>
                 <td>{{ tempEjercicio.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
+                <td>
+                    <a class="back-button" routerLink="/entrenador/ejercicio/detalle/{{ tempEjercicio.id}}">
+                        <i class="fas fa-clipboard-list fa-2x"></i>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>					

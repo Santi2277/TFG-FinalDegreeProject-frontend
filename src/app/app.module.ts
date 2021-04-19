@@ -23,7 +23,8 @@ import { RutinaListaComponent } from './components/rutina-lista/rutina-lista.com
 import { EjercicioComponent } from './components/ejercicio/ejercicio.component';
 import { EEjercicioBuscarComponent } from './components/e-ejercicio-buscar/e-ejercicio-buscar.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EEjercicioDetalleComponent } from './components/e-ejercicio-detalle/e-ejercicio-detalle.component'
 
 const routes: Routes = [
   {path: 'ejercicios', component: EjercicioListaComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path: 'entrenador/medida/medidavalor', component: EntrenadorMedidaMedidavalorComponent},
   {path: 'entrenador/panel', component: EntrenadorComponent},
   {path: 'entrenador/ejercicio/buscar', component: EEjercicioBuscarComponent},
+  {path: 'entrenador/ejercicio/detalle/:id', component: EEjercicioDetalleComponent},
   {path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -66,7 +68,8 @@ const routes: Routes = [
     EntrenadorComponent,
     RutinaListaComponent,
     EjercicioComponent,
-    EEjercicioBuscarComponent
+    EEjercicioBuscarComponent,
+    EEjercicioDetalleComponent
   ],
   imports: [
     BrowserModule,

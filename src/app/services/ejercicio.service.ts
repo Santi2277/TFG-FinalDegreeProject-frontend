@@ -13,6 +13,12 @@ export class EjercicioService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getEjercicio(ejercicioId: number): Observable<Ejercicio> {
+    // need to build URL based on exercise id
+    const ejercicioUrl = `${this.baseUrl}/${ejercicioId}`;
+    return this.httpClient.get<Ejercicio>(ejercicioUrl);
+  }
+
   getEjercicioList(thePage: number, thePageSize: number): Observable<GetResponse> {
     return this.httpClient.get<GetResponse>(this.baseUrl+"?page="+thePage+"&size="+thePageSize);
   }
