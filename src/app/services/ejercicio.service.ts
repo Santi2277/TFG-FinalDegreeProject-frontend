@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Ejercicio } from '../common/ejercicio';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { EjercicioTransfer } from '../common/ejerciciotransfer';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,9 @@ export class EjercicioService {
       "&page="+thePage+"&size="+thePageSize);
   }
 
-
+  postEjercicio(ejercicio: EjercicioTransfer): Observable<any> {
+    return this.httpClient.post<EjercicioTransfer>(this.baseUrl, ejercicio);    
+  }
 
 
 
