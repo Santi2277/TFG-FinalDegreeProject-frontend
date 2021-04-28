@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EjercicioGrupo } from 'src/app/common/ejerciciogrupo';
 import { EjercicioTransfer } from 'src/app/common/ejerciciotransfer';
@@ -18,11 +19,14 @@ export class EEjercicioCrearComponent implements OnInit {
   ejercicioGrupos: EjercicioGrupo[];
   baseUrl: string = "http://localhost:8080/api/";
 
+  checkoutFormGroup: FormGroup;
+
 
   constructor(private ejercicioService: EjercicioService,
               private router: Router,
               private perfilService: PerfilService,
-              private ejercicioGrupoService: EjercicioGrupoService) { }
+              private ejercicioGrupoService: EjercicioGrupoService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
@@ -33,6 +37,20 @@ export class EEjercicioCrearComponent implements OnInit {
     //initialize ejercicio grupo list
     this.listEjercicioGrupos();
 
+    // build the form
+    this.checkoutFormGroup = this.formBuilder.group({
+      general: this.formBuilder.group({
+        nombre: [''],
+        descripcioncorta: [''],
+        descripcionlarga: [''],
+        ejerciciogrupo: [''],
+        creador: ['']
+        
+      })
+      
+      
+      
+    })
 
     
 
@@ -58,15 +76,39 @@ export class EEjercicioCrearComponent implements OnInit {
   }
 
 
-  testButton(){
+  onSubmit(){
+
+    //logs
+    console.log("Manejando el botón de submit");
+    console.log("Nombre: "+ this.checkoutFormGroup.get('general.nombre')?.value);
+    console.log("Descripcion corta: "+ this.checkoutFormGroup.get('general.descripcioncorta')?.value);
+    console.log("Descripcion larga: "+ this.checkoutFormGroup.get('general.descripcionlarga')?.value);
+    console.log("Ejercicio grupo: "+ this.checkoutFormGroup.get('general.ejerciciogrupo')?.value);
+    console.log("Creador: "+ this.checkoutFormGroup.get('general.creador')?.value);
+
+    //get form values
+    var nombre : string = this.checkoutFormGroup.get('general.nombre')?.value;
+    var descripcioncorta : string = this.checkoutFormGroup.get('general.descripcioncorta')?.value;
+    if(descripcioncorta == ""){
+      descripcioncorta = "Por describir";
+    }
+
+    var descripcionlarga : string = this.checkoutFormGroup.get('general.descripcionlarga')?.value;
+    if(descripcionlarga == ""){
+      descripcionlarga = "Por describir";
+    }
+    var ejerciciogrupo : number = this.checkoutFormGroup.get('general.ejerciciogrupo')?.value;
+    var creador : number = this.checkoutFormGroup.get('general.creador')?.value;
 
     //test hardcoded creation, should be on a method appart
     //and called on click a button or onsubmit form with
     //not hardcoded fields
     var ejercicio: EjercicioTransfer = new EjercicioTransfer();
-    ejercicio.nombre = "Ejercicio de prueba Frontend";
-    ejercicio.ejercicioGrupo = this.baseUrl+"ejerciciogrupos/"+this.ejercicioGrupos[0].id;
-    ejercicio.creador = this.baseUrl+"perfiles/"+this.perfiles[0].id;
+    ejercicio.nombre = nombre;
+    ejercicio.descripcionCorta = descripcioncorta;
+    ejercicio.descripcionLarga = descripcionlarga;
+    ejercicio.ejercicioGrupo = this.baseUrl+"ejerciciogrupos/"+ejerciciogrupo;
+    ejercicio.creador = this.baseUrl+"perfiles/"+creador;
 
 
 

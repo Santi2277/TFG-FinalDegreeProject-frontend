@@ -3,13 +3,43 @@
 
     <h4>Ejercicio Detalle:</h4>
     
-    <h5>Id: {{ ejercicio.id }}</h5>
-    <h5>Nombre: {{ ejercicio.nombre }}</h5>
-    <h5>Descripción corta:</h5>
-    <p>{{ ejercicio.descripcionCorta }}</p>
-    <h5>Descripción Larga:</h5>
-    <p>{{ ejercicio.descripcionLarga }}</p>
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Id:</h5>
+        <div class="col-sm-4">
+            <h6>{{ ejercicio.id }}</h6>
+        </div>
+    </div>
 
-    <a routerLink="/entrenador/ejercicio/buscar" class="mt-5">Volver a buscar Ejercicio</a>
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Nombre:</h5>
+        <div class="col-sm-4">
+            <h6>{{ ejercicio.nombre }}</h6>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Descripción corta:</h5>
+        <div class="col-sm-4">
+            <h6>{{ ejercicio.descripcionCorta }}</h6>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Descripción Larga:</h5>
+        <div class="col-sm-4">
+            <h6>{{ ejercicio.descripcionLarga }}</h6>
+        </div>
+    </div>
     
+</div>
+
+<div class="d-grid gap-2 col-6 mx-auto mt-2">
+    <div class="d-grid gap-2 d-md-block">
+      <a class="back-button" routerLink="/entrenador/ejercicio/buscar">
+        <i class="far fa-arrow-alt-circle-left fa-3x"></i>
+      </a>
+    </div>
+</div>
+<div class="container">
+<button (click)="testButton()">BORRAR ejercicio</button> 
 </div>

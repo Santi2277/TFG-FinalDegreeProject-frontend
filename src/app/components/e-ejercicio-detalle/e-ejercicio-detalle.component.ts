@@ -33,7 +33,11 @@ export class EEjercicioDetalleComponent implements OnInit {
     )
   }
 
+  testButton(){
+    console.log("antes de borrar");
+    this.ejercicioService.deleteEjercicio(this.ejercicio.id);
 
+  }
 
 
 }

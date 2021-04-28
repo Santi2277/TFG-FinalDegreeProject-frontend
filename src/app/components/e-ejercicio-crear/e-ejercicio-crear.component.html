@@ -1,6 +1,84 @@
-<p>e-ejercicio-crear works!</p>
+<div class="container"> 
+  <h4>Crear Ejercicio:</h4>
 
-<button (click)="testButton()">Post ejercicio de prueba</button> 
+
+<form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+  <div formGroupName="general" class="form-area">
+      <div class="mb-3 row">
+          <label class="col-sm-2 col-form-label">Nombre:</label>
+          <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="nombre">
+          </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Descripción corta:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" formControlName="descripcioncorta">
+        </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-sm-2 col-form-label">Descripcion larga:</label>
+      <div class="col-sm-4">
+          <textarea class="form-control" formControlName="descripcionlarga"></textarea>
+      </div>
+  </div>
+
+  <div class="mb-3 row">
+  <label class="col-sm-2 col-form-label">Ejercicio Grupo:</label>
+  <div class="col-sm-4">
+    <select class="form-select" formControlName="ejerciciogrupo">
+        
+        <option *ngFor="let tempEjercicioGrupo of ejercicioGrupos" value="{{ tempEjercicioGrupo.id}}">{{ tempEjercicioGrupo.nombre}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <label class="col-sm-2 col-form-label">Creador:</label>
+  <div class="col-sm-4">
+    <select class="form-select" formControlName="creador">
+        
+        <option *ngFor="let tempCreador of perfiles" value="{{ tempCreador.id}}">{{ tempCreador.nombre}} {{ tempCreador.nick}}</option>
+    </select>
+  </div>
+</div>
+ 
+</div>
+  
+
+  <div class="mb-3 row">
+    <div class="col-sm-4">
+        <button type="submit" class="btn btn-secondary" >Crear</button>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Validations-->
+  <!--Name-->
+  
+<!--Ejercicio grupo-->
+
+
+<!--Creador-->
+
+
+
+
+
+
+
+
+
+</form>
+</div>
+
+
+
+
 
 <div class="d-grid gap-2 col-6 mx-auto mt-2">
     <div class="d-grid gap-2 d-md-block">
@@ -8,4 +86,4 @@
         <i class="far fa-arrow-alt-circle-left fa-3x"></i>
       </a>
     </div>
-  </div>
+</div>

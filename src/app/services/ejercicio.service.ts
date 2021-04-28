@@ -39,6 +39,13 @@ export class EjercicioService {
     return this.httpClient.post<EjercicioTransfer>(this.baseUrl, ejercicio);    
   }
 
+  deleteEjercicio(ejercicioId: number){
+    let endPoint = `${this.baseUrl}/${ejercicioId}`;
+    this.httpClient.delete(endPoint).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 
 
 
