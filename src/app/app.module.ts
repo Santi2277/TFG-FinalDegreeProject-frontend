@@ -25,7 +25,8 @@ import { EEjercicioBuscarComponent } from './components/e-ejercicio-buscar/e-eje
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EEjercicioDetalleComponent } from './components/e-ejercicio-detalle/e-ejercicio-detalle.component';
-import { EEjercicioCrearComponent } from './components/e-ejercicio-crear/e-ejercicio-crear.component'
+import { EEjercicioCrearComponent } from './components/e-ejercicio-crear/e-ejercicio-crear.component';
+import { EEjercicioEditarComponent } from './components/e-ejercicio-editar/e-ejercicio-editar.component'
 
 const routes: Routes = [
   {path: 'ejercicios', component: EjercicioListaComponent},
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'entrenador/panel', component: EntrenadorComponent},
   {path: 'entrenador/ejercicio/buscar', component: EEjercicioBuscarComponent},
   {path: 'entrenador/ejercicio/detalle/:id', component: EEjercicioDetalleComponent},
+  {path: 'entrenador/ejercicio/editar/:id', component: EEjercicioEditarComponent},
   {path: 'entrenador/ejercicio/crear', component: EEjercicioCrearComponent},
   {path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: '**', redirectTo: '/main', pathMatch: 'full'}
@@ -72,7 +74,8 @@ const routes: Routes = [
     EjercicioComponent,
     EEjercicioBuscarComponent,
     EEjercicioDetalleComponent,
-    EEjercicioCrearComponent
+    EEjercicioCrearComponent,
+    EEjercicioEditarComponent
   ],
   imports: [
     BrowserModule,

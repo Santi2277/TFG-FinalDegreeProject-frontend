@@ -1,0 +1,31 @@
+<div class="container">
+
+    <h4>Editar Ejercicio:</h4>
+
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Id:</h5>
+        <div class="col-sm-4">
+            <h6>{{ ejercicio.id }}</h6>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Nombre:</h5>
+        <div class="col-sm-4">
+            <h6>{{ ejercicio.nombre }}</h6>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+<div class="d-grid gap-2 col-6 mx-auto mt-2">
+    <div class="d-grid gap-2 d-md-block">
+      <a class="back-button" routerLink="/entrenador/ejercicio/detalle/{{ejercicio.id}}">
+        <i class="far fa-arrow-alt-circle-left fa-3x"></i>
+      </a>
+    </div>
+</div>

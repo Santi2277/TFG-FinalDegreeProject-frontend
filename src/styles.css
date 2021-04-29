@@ -52,3 +52,30 @@ body {
     justify-content: right !important;
 }
 
+
+
+.remove:link{
+    color: rgb(216, 39, 30);
+    background-color: transparent;
+    text-decoration: none;
+}
+.remove:visited{
+color: rgb(216, 39, 30);
+background-color: transparent;
+text-decoration: none;
+}
+.remove:hover{
+color: rgb(216, 39, 30);
+background-color: transparent;
+text-decoration: none;
+}
+.remove:active{
+color: rgb(216, 39, 30);
+background-color: transparent;
+text-decoration: none;
+}
+.remove{
+    color: rgb(216, 39, 30);
+    background-color: transparent;
+    text-decoration: none;
+}

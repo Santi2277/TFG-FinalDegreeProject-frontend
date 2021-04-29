@@ -46,6 +46,13 @@ export class EjercicioService {
     });
   }
 
+  public updateEjercicio(ejercicioId: number, ejercicio: EjercicioTransfer) {
+    let endPoint = `${this.baseUrl}/${ejercicioId}`;
+    this.httpClient.put(endPoint, ejercicio).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 
 
 

@@ -40,6 +40,9 @@
       </a>
     </div>
 </div>
-<div class="container">
-<button (click)="testButton()">BORRAR ejercicio</button> 
+<div class="container mt-4">
+<button routerLink="/entrenador/ejercicio/editar/{{ejercicio.id}}"><i class="fas fa-edit fa-2x "></i></button>
+</div>
+<div class="container mt-4">
+<button (click)="testButton()"><i class="fas fa-trash-alt fa-2x remove"></i></button> 
 </div>
