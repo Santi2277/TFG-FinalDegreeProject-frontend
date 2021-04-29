@@ -7,7 +7,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { EjercicioListaComponent } from './components/ejercicio-lista/ejercicio-lista.component';
 import { EntrenadorListaComponent } from './components/entrenador-lista/entrenador-lista.component';
 import { HttpClientModule } from '@angular/common/http';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, Router} from '@angular/router';
 import { EntrenadorEjercicioComponent } from './components/entrenador-ejercicio/entrenador-ejercicio.component';
 import { EntrenadorParametroComponent } from './components/entrenador-parametro/entrenador-parametro.component';
 import { EntrenadorMedidaComponent } from './components/entrenador-medida/entrenador-medida.component';
@@ -26,9 +26,33 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EEjercicioDetalleComponent } from './components/e-ejercicio-detalle/e-ejercicio-detalle.component';
 import { EEjercicioCrearComponent } from './components/e-ejercicio-crear/e-ejercicio-crear.component';
-import { EEjercicioEditarComponent } from './components/e-ejercicio-editar/e-ejercicio-editar.component'
+import { EEjercicioEditarComponent } from './components/e-ejercicio-editar/e-ejercicio-editar.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginStatusComponent } from './components/login-status/login-status.component'
+
+import {
+  OKTA_CONFIG,
+  OktaAuthModule,
+  OktaCallbackComponent,
+  OktaAuthGuard
+} from '@okta/okta-angular';
+
+import myAppConfig from './config/my-app-config';
+
+const oktaConfig = Object.assign({
+  onAuthRequired: (oktaAuth: any, injector: { get: (arg0: typeof Router) => any; }) => {
+    const router = injector.get(Router);
+
+    // Redirect the user to your custom login page
+    router.navigate(['/login']);
+  }
+}, myAppConfig.oidc);
 
 const routes: Routes = [
+  
+  {path: 'login/callback', component: OktaCallbackComponent},
+  {path: 'login', component: LoginComponent},
+
   {path: 'ejercicios', component: EjercicioListaComponent},
   {path: 'main', component: MainContentComponent},
   {path: 'main/rutinas', component: RutinaListaComponent},
@@ -75,7 +99,9 @@ const routes: Routes = [
     EEjercicioBuscarComponent,
     EEjercicioDetalleComponent,
     EEjercicioCrearComponent,
-    EEjercicioEditarComponent
+    EEjercicioEditarComponent,
+    LoginComponent,
+    LoginStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -83,9 +109,10 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    OktaAuthModule
   ],
-  providers: [],
+  providers: [{ provide: OKTA_CONFIG, useValue: oktaConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
