@@ -4,6 +4,7 @@ import { Ejercicio } from '../common/ejercicio';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { EjercicioTransfer } from '../common/ejerciciotransfer';
+import { EjercicioEdit } from '../common/edit/ejercicioedit';
 
 @Injectable({
   providedIn: 'root'
@@ -39,18 +40,14 @@ export class EjercicioService {
     return this.httpClient.post<EjercicioTransfer>(this.baseUrl, ejercicio);    
   }
 
-  deleteEjercicio(ejercicioId: number){
+  deleteEjercicio(ejercicioId: number): Observable<any>{
     let endPoint = `${this.baseUrl}/${ejercicioId}`;
-    this.httpClient.delete(endPoint).subscribe(data => {
-      console.log(data);
-    });
+    return this.httpClient.delete(endPoint);
   }
 
-  public updateEjercicio(ejercicioId: number, ejercicio: EjercicioTransfer) {
+  updateEjercicio(ejercicioId: number, ejercicio: EjercicioEdit): Observable<any> {
     let endPoint = `${this.baseUrl}/${ejercicioId}`;
-    this.httpClient.put(endPoint, ejercicio).subscribe(data => {
-      console.log(data);
-    });
+    return this.httpClient.put<EjercicioEdit>(endPoint, ejercicio);
   }
 
 

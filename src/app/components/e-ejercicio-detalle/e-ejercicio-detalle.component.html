@@ -33,16 +33,26 @@
     
 </div>
 
+
+
+
+
+<div class="container mt-4">
+<a class="back-button" routerLink="/entrenador/ejercicio/editar/{{ejercicio.id}}" title="editar">
+    <i class="fas fa-edit fa-2x "></i>
+</a>
+</div>
+
+
+
+<div class="container mt-4">
+    <button (click)="testButton()" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
+</div>
+
 <div class="d-grid gap-2 col-6 mx-auto mt-2">
     <div class="d-grid gap-2 d-md-block">
       <a class="back-button" routerLink="/entrenador/ejercicio/buscar">
         <i class="far fa-arrow-alt-circle-left fa-3x"></i>
       </a>
     </div>
-</div>
-<div class="container mt-4">
-<button routerLink="/entrenador/ejercicio/editar/{{ejercicio.id}}"><i class="fas fa-edit fa-2x "></i></button>
-</div>
-<div class="container mt-4">
-<button (click)="testButton()"><i class="fas fa-trash-alt fa-2x remove"></i></button> 
 </div>

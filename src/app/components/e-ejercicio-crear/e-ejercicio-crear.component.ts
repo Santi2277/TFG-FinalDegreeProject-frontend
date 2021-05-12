@@ -114,11 +114,13 @@ export class EEjercicioCrearComponent implements OnInit {
 
     this.ejercicioService.postEjercicio(ejercicio).subscribe({
       next: response => {
-        alert(`Exercise has been posted.\nExercise name: ${response.nombre}`);
+        alert(`Ejercicio creado con éxito.\nNombre: ${response.nombre}`);
+        //redirect
+      this.router.navigateByUrl('/entrenador/ejercicio/detalle/'+response.id);
 
       },
       error: err => {
-        alert(`There was an error: ${err.message}`);
+        alert(`Hubo un error: ${err.message}`);
       }
     }
   );

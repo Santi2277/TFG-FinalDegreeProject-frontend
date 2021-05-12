@@ -38,6 +38,22 @@ import {
 } from '@okta/okta-angular';
 
 import myAppConfig from './config/my-app-config';
+import { EpParametroBuscarComponent } from './components/ep-parametro-buscar/ep-parametro-buscar.component';
+import { EpParametroCrearComponent } from './components/ep-parametro-crear/ep-parametro-crear.component';
+import { EpParametroDetalleComponent } from './components/ep-parametro-detalle/ep-parametro-detalle.component';
+import { EpParametroEditarComponent } from './components/ep-parametro-editar/ep-parametro-editar.component';
+import { EpParametrogrupoBuscarComponent } from './components/ep-parametrogrupo-buscar/ep-parametrogrupo-buscar.component';
+import { EpParametrogrupoCrearComponent } from './components/ep-parametrogrupo-crear/ep-parametrogrupo-crear.component';
+import { EpParametrogrupoDetalleComponent } from './components/ep-parametrogrupo-detalle/ep-parametrogrupo-detalle.component';
+import { EpParametrogrupoEditarComponent } from './components/ep-parametrogrupo-editar/ep-parametrogrupo-editar.component';
+import { EpParametrovalorBuscarComponent } from './components/ep-parametrovalor-buscar/ep-parametrovalor-buscar.component';
+import { EpParametrovalorCrearComponent } from './components/ep-parametrovalor-crear/ep-parametrovalor-crear.component';
+import { EpParametrovalorDetalleComponent } from './components/ep-parametrovalor-detalle/ep-parametrovalor-detalle.component';
+import { EpParametrovalorEditarComponent } from './components/ep-parametrovalor-editar/ep-parametrovalor-editar.component';
+import { EpParametrosubvalorBuscarComponent } from './components/ep-parametrosubvalor-buscar/ep-parametrosubvalor-buscar.component';
+import { EpParametrosubvalorCrearComponent } from './components/ep-parametrosubvalor-crear/ep-parametrosubvalor-crear.component';
+import { EpParametrosubvalorDetalleComponent } from './components/ep-parametrosubvalor-detalle/ep-parametrosubvalor-detalle.component';
+import { EpParametrosubvalorEditarComponent } from './components/ep-parametrosubvalor-editar/ep-parametrosubvalor-editar.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: any, injector: { get: (arg0: typeof Router) => any; }) => {
@@ -72,6 +88,22 @@ const routes: Routes = [
   {path: 'entrenador/ejercicio/detalle/:id', component: EEjercicioDetalleComponent},
   {path: 'entrenador/ejercicio/editar/:id', component: EEjercicioEditarComponent},
   {path: 'entrenador/ejercicio/crear', component: EEjercicioCrearComponent},
+  {path: 'entrenador/parametro/parametro/buscar', component: EpParametroBuscarComponent},
+  {path: 'entrenador/parametro/parametro/crear', component: EpParametroCrearComponent},
+  {path: 'entrenador/parametro/parametro/detalle/:id', component: EpParametroDetalleComponent},
+  {path: 'entrenador/parametro/parametro/editar/:id', component: EpParametroEditarComponent},
+  {path: 'entrenador/parametro/parametrogrupo/buscar', component: EpParametrogrupoBuscarComponent},
+  {path: 'entrenador/parametro/parametrogrupo/crear', component: EpParametrogrupoCrearComponent},
+  {path: 'entrenador/parametro/parametrogrupo/detalle/:id', component: EpParametrogrupoDetalleComponent},
+  {path: 'entrenador/parametro/parametrogrupo/editar/:id', component: EpParametrogrupoEditarComponent},
+  {path: 'entrenador/parametro/parametrovalor/buscar', component: EpParametrovalorBuscarComponent},
+  {path: 'entrenador/parametro/parametrovalor/crear', component: EpParametrovalorCrearComponent},
+  {path: 'entrenador/parametro/parametrovalor/detalle/:id', component: EpParametrovalorDetalleComponent},
+  {path: 'entrenador/parametro/parametrovalor/editar/:id', component: EpParametrovalorEditarComponent},
+  {path: 'entrenador/parametro/parametrosubvalor/buscar', component: EpParametrosubvalorBuscarComponent},
+  {path: 'entrenador/parametro/parametrosubvalor/crear', component: EpParametrosubvalorCrearComponent},
+  {path: 'entrenador/parametro/parametrosubvalor/detalle/:id', component: EpParametrosubvalorDetalleComponent},
+  {path: 'entrenador/parametro/parametrosubvalor/editar/:id', component: EpParametrosubvalorEditarComponent},
   {path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -101,7 +133,23 @@ const routes: Routes = [
     EEjercicioCrearComponent,
     EEjercicioEditarComponent,
     LoginComponent,
-    LoginStatusComponent
+    LoginStatusComponent,
+    EpParametroBuscarComponent,
+    EpParametroCrearComponent,
+    EpParametroDetalleComponent,
+    EpParametroEditarComponent,
+    EpParametrogrupoBuscarComponent,
+    EpParametrogrupoCrearComponent,
+    EpParametrogrupoDetalleComponent,
+    EpParametrogrupoEditarComponent,
+    EpParametrovalorBuscarComponent,
+    EpParametrovalorCrearComponent,
+    EpParametrovalorDetalleComponent,
+    EpParametrovalorEditarComponent,
+    EpParametrosubvalorBuscarComponent,
+    EpParametrosubvalorCrearComponent,
+    EpParametrosubvalorDetalleComponent,
+    EpParametrosubvalorEditarComponent
   ],
   imports: [
     BrowserModule,

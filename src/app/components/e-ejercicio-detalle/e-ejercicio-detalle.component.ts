@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ejercicio } from 'src/app/common/ejercicio';
 import { EjercicioService } from 'src/app/services/ejercicio.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-e-ejercicio-detalle',
@@ -12,7 +12,7 @@ export class EEjercicioDetalleComponent implements OnInit {
 
   ejercicio: Ejercicio = new Ejercicio();
 
-  constructor(private ejercicioService: EjercicioService, private route: ActivatedRoute) { }
+  constructor(private ejercicioService: EjercicioService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -35,7 +35,22 @@ export class EEjercicioDetalleComponent implements OnInit {
 
   testButton(){
     console.log("antes de borrar");
-    this.ejercicioService.deleteEjercicio(this.ejercicio.id);
+    this.ejercicioService.deleteEjercicio(this.ejercicio.id).subscribe({
+      next: response => {
+        alert(`Ejercicio borrado`);
+        //redirect
+        this.router.navigateByUrl('/entrenador/ejercicio/buscar');
+
+      },
+      error: err => {
+        alert(`Hubo un error: ${err.message}`);
+      }
+    }
+  );;
+
+
+
+    
 
   }
 
