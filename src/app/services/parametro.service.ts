@@ -13,15 +13,45 @@ export class ParametroService {
 
   constructor(private httpClient: HttpClient) { }
 
+
+
+
+
   getParametroList(): Observable<Parametro[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.parametroes)
     );
   }
+
+
+  getParametroPagList(thePage: number, thePageSize: number): Observable<GetResponse> {
+    return this.httpClient.get<GetResponse>(this.baseUrl+"?page="+thePage+"&size="+thePageSize);
+  }
+
+
+  getParametroAdvancedList(nombre: string, diminutivo: string, 
+     thePage: number, thePageSize: number): Observable<GetResponse> {
+   return this.httpClient.get<GetResponse>(this.baseUrl+"/search/buscarParametro?nombre="+nombre+"&diminutivo="+diminutivo+
+     "&page="+thePage+"&size="+thePageSize);
+ }
+
+
+
+
+
 }
+
+
+
 
 interface GetResponse {
   _embedded: {
     parametroes: Parametro[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }

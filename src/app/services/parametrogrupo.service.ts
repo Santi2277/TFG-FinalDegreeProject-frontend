@@ -26,11 +26,29 @@ export class ParametroGrupoService {
   }
 
 
+  getParametroGrupoPagList(thePage: number, thePageSize: number): Observable<GetResponse> {
+    return this.httpClient.get<GetResponse>(this.baseUrl+"?page="+thePage+"&size="+thePageSize);
+  }
+
+
+  getParametroGrupoAdvancedList(nombre: string, diminutivo: string, parametro: string,
+     thePage: number, thePageSize: number): Observable<GetResponse> {
+   return this.httpClient.get<GetResponse>(this.baseUrl+"/search/buscarParametroGrupo?nombre="+nombre+"&diminutivo="+diminutivo+"&parametro="+parametro+
+     "&page="+thePage+"&size="+thePageSize);
+ }
+
+
 
 }
 
 interface GetResponse {
   _embedded: {
     parametroGrupoes: ParametroGrupo[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }
