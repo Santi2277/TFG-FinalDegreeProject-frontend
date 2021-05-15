@@ -38,6 +38,21 @@ export class ParametroService {
 
 
 
+ getParametro(parametroId: number): Observable<Parametro> {
+  // need to build URL based on parametro id
+  const parametroUrl = `${this.baseUrl}/${parametroId}`;
+  return this.httpClient.get<Parametro>(parametroUrl);
+}
+
+
+deleteParametro(parametroId: number): Observable<any>{
+  let endPoint = `${this.baseUrl}/${parametroId}`;
+  return this.httpClient.delete(endPoint);
+}
+
+
+
+
 
 }
 

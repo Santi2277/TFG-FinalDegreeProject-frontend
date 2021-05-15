@@ -38,6 +38,21 @@ export class ParametroGrupoService {
  }
 
 
+ getParametroGrupo(parametroGrupoId: number): Observable<ParametroGrupo> {
+  // need to build URL based on parametro Grupo id
+  const parametroGrupoUrl = `${this.baseUrl}/${parametroGrupoId}`;
+  return this.httpClient.get<ParametroGrupo>(parametroGrupoUrl);
+}
+
+
+deleteParametroGrupo(parametroGrupoId: number): Observable<any>{
+  let endPoint = `${this.baseUrl}/${parametroGrupoId}`;
+  return this.httpClient.delete(endPoint);
+}
+
+
+
+
 
 }
 

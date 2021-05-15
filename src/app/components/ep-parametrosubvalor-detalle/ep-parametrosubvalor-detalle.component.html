@@ -1,1 +1,59 @@
-<p>ep-parametrosubvalor-detalle works!</p>
+<div class="container">
+
+    <h4>Subvalor de Parámetro:</h4>
+    
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Id:</h5>
+        <div class="col-sm-4">
+            <h6>{{ parametrosubvalor.id }}</h6>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Nombre:</h5>
+        <div class="col-sm-4">
+            <h6>{{ parametrosubvalor.nombre }}</h6>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Diminutivo:</h5>
+        <div class="col-sm-4">
+            <h6>{{ parametrosubvalor.diminutivo }}</h6>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <h5 class="col-sm-2">Info:</h5>
+        <div class="col-sm-4">
+            <h6>{{ parametrosubvalor.info }}</h6>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+
+<div class="container mt-4">
+<a class="back-button" routerLink="/entrenador/parametro/parametrosubvalor/editar/{{parametrosubvalor.id}}" title="editar">
+    <i class="fas fa-edit fa-2x "></i>
+</a>
+</div>
+
+
+
+<div class="container mt-4">
+    <button (click)="testButton()" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
+</div>
+
+<div class="d-grid gap-2 col-6 mx-auto mt-2">
+    <div class="d-grid gap-2 d-md-block">
+      <a class="back-button" routerLink="/entrenador/parametro/parametrosubvalor/buscar">
+        <i class="far fa-arrow-alt-circle-left fa-3x"></i>
+      </a>
+    </div>
+</div>
+
+

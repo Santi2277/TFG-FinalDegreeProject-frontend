@@ -39,7 +39,17 @@ export class ParametroListaService {
  }
 
 
+ getParametroLista(parametroListaId: number): Observable<ParametroLista> {
+  // need to build URL based on parametro Lista id
+  const parametroListaUrl = `${this.baseUrl}/${parametroListaId}`;
+  return this.httpClient.get<ParametroLista>(parametroListaUrl);
+}
 
+
+deleteParametroLista(parametroListaId: number): Observable<any>{
+  let endPoint = `${this.baseUrl}/${parametroListaId}`;
+  return this.httpClient.delete(endPoint);
+}
 
 
 }
