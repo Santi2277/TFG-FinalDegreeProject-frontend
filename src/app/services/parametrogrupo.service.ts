@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ParametroGrupo } from '../common/parametrogrupo';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ParametroGrupoTransfer } from '../common/transfer/parametrogrupotransfer';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,9 @@ deleteParametroGrupo(parametroGrupoId: number): Observable<any>{
   return this.httpClient.delete(endPoint);
 }
 
+postParametroGrupo(parametroGrupo: ParametroGrupoTransfer): Observable<any> {
+  return this.httpClient.post<ParametroGrupoTransfer>(this.baseUrl, parametroGrupo);    
+}
 
 
 

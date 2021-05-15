@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Parametro } from '../common/parametro';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ParametroTransfer } from '../common/transfer/parametrotransfer';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,9 @@ deleteParametro(parametroId: number): Observable<any>{
 }
 
 
-
+postParametro(parametro: ParametroTransfer): Observable<any> {
+  return this.httpClient.post<ParametroTransfer>(this.baseUrl, parametro);    
+}
 
 
 }

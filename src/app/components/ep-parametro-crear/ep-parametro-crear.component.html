@@ -1,1 +1,69 @@
-<p>ep-parametro-crear works!</p>
+<div class="container"> 
+    <h4>Crear Parametro:</h4>
+  
+  
+  <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+  
+    <div formGroupName="general" class="form-area">
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Nombre:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" formControlName="nombre">
+            </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-2 col-form-label">Diminutivo:</label>
+          <div class="col-sm-4">
+              <input type="text" class="form-control" formControlName="diminutivo">
+          </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Info:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" formControlName="info">
+        </div>
+    </div>
+      
+  
+    
+  
+  <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">Creador:</label>
+    <div class="col-sm-4">
+      <select class="form-select" formControlName="creador">
+          
+          <option *ngFor="let tempCreador of perfiles" value="{{ tempCreador.id}}">{{ tempCreador.nombre}} {{ tempCreador.nick}}</option>
+      </select>
+    </div>
+  </div>
+   
+  </div>
+    
+  
+    <div class="mb-3 row">
+      <div class="col-sm-4">
+          <button type="submit" class="btn btn-secondary" >Crear</button>
+      </div>
+    </div>
+  
+  
+  
+  
+  
+    <!-- Validations-->
+    <!-- to be added in the future if necessary-->
+  
+  </form>
+  </div>
+  
+  
+  
+  
+  
+  <div class="d-grid gap-2 col-6 mx-auto mt-2">
+      <div class="d-grid gap-2 d-md-block">
+        <a class="back-button" routerLink="/entrenador/parametro/parametro">
+          <i class="far fa-arrow-alt-circle-left fa-3x"></i>
+        </a>
+      </div>
+  </div>
