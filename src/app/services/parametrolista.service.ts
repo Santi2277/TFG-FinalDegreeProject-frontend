@@ -26,10 +26,32 @@ export class ParametroListaService {
   }
 
 
+
+  getParametroListaPagList(thePage: number, thePageSize: number): Observable<GetResponse> {
+    return this.httpClient.get<GetResponse>(this.baseUrl+"?page="+thePage+"&size="+thePageSize);
+  }
+
+
+  getParametroListaAdvancedList(nombre: string, diminutivo: string, parametro: string, parametrogrupo: string,
+     thePage: number, thePageSize: number): Observable<GetResponse> {
+   return this.httpClient.get<GetResponse>(this.baseUrl+"/search/buscarParametroLista?nombre="+nombre+"&diminutivo="+diminutivo+"&parametro="+parametro+"&parametrogrupo="+parametrogrupo+
+     "&page="+thePage+"&size="+thePageSize);
+ }
+
+
+
+
+
 }
 
 interface GetResponse {
   _embedded: {
     parametroListas: ParametroLista[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }

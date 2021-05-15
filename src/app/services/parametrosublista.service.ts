@@ -26,10 +26,33 @@ export class ParametroSublistaService {
   }
 
 
+  getParametroSublistaPagList(thePage: number, thePageSize: number): Observable<GetResponse> {
+    return this.httpClient.get<GetResponse>(this.baseUrl+"?page="+thePage+"&size="+thePageSize);
+  }
+
+
+  getParametroSublistaAdvancedList(nombre: string, diminutivo: string, parametro: string, parametrogrupo: string, parametrovalor: string,
+     thePage: number, thePageSize: number): Observable<GetResponse> {
+   return this.httpClient.get<GetResponse>(this.baseUrl+"/search/buscarParametroSublista?nombre="+nombre+"&diminutivo="+diminutivo+"&parametro="+parametro+"&parametrogrupo="+parametrogrupo+"&parametrovalor="+parametrovalor+
+     "&page="+thePage+"&size="+thePageSize);
+ }
+
+
+
+
+
+
+
 }
 
 interface GetResponse {
   _embedded: {
     parametroSublistas: ParametroSublista[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }

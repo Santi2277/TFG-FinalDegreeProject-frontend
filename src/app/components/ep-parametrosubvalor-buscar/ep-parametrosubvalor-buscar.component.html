@@ -1,1 +1,140 @@
-<p>ep-parametrosubvalor-buscar works!</p>
+<div class="container"> 
+
+    <h4>Buscar Subvalor de Parámetro:</h4>
+
+    <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+
+        <div formGroupName="general" class="form-area">
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" formControlName="nombre">
+                </div>
+
+                <label class="col-sm-2 col-form-label">Diminutivo</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" formControlName="diminutivo">
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                
+                <label class="col-sm-2 col-form-label">Parámetro</label>
+                <div class="col-sm-4">
+                    <select class="form-select" formControlName="parametro" (change)="onChangeP()">
+                        <option selected value=""></option>
+                        <option *ngFor="let tempParametro of parametros" value="{{ tempParametro.id}}">{{ tempParametro.nombre}}</option>
+                    </select>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Grupo de Parámetro</label>
+                <div class="col-sm-4">
+                    <select class="form-select" formControlName="parametrogrupo" (change)="onChangePG()">
+                        <option selected value=""></option>
+                        <option *ngFor="let tempParametroGrupo of parametroGrupos" value="{{ tempParametroGrupo.id}}">{{ tempParametroGrupo.nombre}}</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Parametro Valor</label>
+                <div class="col-sm-4">
+                    <select class="form-select" formControlName="parametrovalor">
+                        <option selected value=""></option>
+                        <option [ngValue]="tempParametroValor" *ngFor="let tempParametroValor of parametroValores" value="{{ tempParametroValor.id}}">{{ tempParametroValor.nombre}}</option>
+                    </select>
+                </div>
+                
+            </div>
+
+
+
+        </div>
+
+        
+
+        <div class="mb-3 row">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-secondary" >Buscar</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+   
+<!-- ::::::::::::::::::::::::::::::::::::::::::  -->
+<!-- ::::::::::::      TABLE       ::::::::::::  -->
+<!-- ::::::::::::::::::::::::::::::::::::::::::  -->
+
+<div class="container">
+    <table class="table table-light table-bordered table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Diminutivo</th>
+                <th scope="col">Entrenador</th>
+                <th scope="col">Creado</th>
+                <th scope="col">Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tempParametroSubvalor of parametroSubvalores">
+                <td>{{ tempParametroSubvalor.id}}</td>
+                <td>{{ tempParametroSubvalor.nombre}}</td>
+                <td>{{ tempParametroSubvalor.diminutivo}}</td>
+                <td>{{ tempParametroSubvalor.creador.nick}}</td>
+                <td>{{ tempParametroSubvalor.fechaCreacion | date: 'dd/MM/yyyy'}}</td>
+                <td>
+                    <a class="back-button" routerLink="/entrenador/parametro/parametrosubvalor/detalle/{{ tempParametroSubvalor.id}}">
+                        <i class="fas fa-clipboard-list fa-2x"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>					
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    
+    <ngb-pagination [(page)]="thePageNumber"
+                    [pageSize]="thePageSize"
+                    [collectionSize]="theTotalElements"
+                    [maxSize]="10"
+                    [boundaryLinks]="true"
+                    (pageChange)="onSubmit()">
+    </ngb-pagination>
+
+</div>
+
+<div class="container">
+    <a class="back-button" routerLink="/entrenador/parametro/parametrosubvalor">
+        <i class="far fa-arrow-alt-circle-left fa-3x"></i>
+    </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
