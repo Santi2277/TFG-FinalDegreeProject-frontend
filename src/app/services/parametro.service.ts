@@ -4,6 +4,7 @@ import { Parametro } from '../common/parametro';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ParametroTransfer } from '../common/transfer/parametrotransfer';
+import { ParametroEdit } from '../common/edit/parametroedit';
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +56,14 @@ deleteParametro(parametroId: number): Observable<any>{
 postParametro(parametro: ParametroTransfer): Observable<any> {
   return this.httpClient.post<ParametroTransfer>(this.baseUrl, parametro);    
 }
+
+updateParametro(parametroId: number, parametro: ParametroEdit): Observable<any> {
+  let endPoint = `${this.baseUrl}/${parametroId}`;
+  return this.httpClient.put<ParametroEdit>(endPoint, parametro);
+}
+
+
+
 
 
 }

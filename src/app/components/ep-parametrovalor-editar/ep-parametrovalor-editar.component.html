@@ -1,1 +1,54 @@
-<p>ep-parametrovalor-editar works!</p>
+<div class="container">
+
+
+    <h4>Editar Valor de Parámetro:</h4>
+
+
+    <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+        <div formGroupName="general" class="form-area">
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Nombre:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" formControlName="nombre">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label class="col-sm-2 col-form-label">Diminutivo:</label>
+              <div class="col-sm-4">
+                  <input type="text" class="form-control" formControlName="diminutivo">
+              </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Info:</label>
+            <div class="col-sm-4">
+                <textarea class="form-control" formControlName="info"></textarea>
+            </div>
+        </div>
+      
+      </div>
+        
+        <div class="mb-3 row">
+          <div class="col-sm-4">
+              <button type="submit" class="btn btn-secondary" >Editar</button>
+          </div>
+        </div>
+      
+      </form>
+    
+</div>
+
+
+
+<div class="d-grid gap-2 col-6 mx-auto mt-2">
+    <div class="d-grid gap-2 d-md-block">
+      <a class="back-button" routerLink="/entrenador/parametro/parametrovalor/detalle/{{parametrovalor.id}}">
+        <i class="far fa-arrow-alt-circle-left fa-3x"></i>
+      </a>
+    </div>
+</div>
+
+

@@ -4,6 +4,7 @@ import { ParametroSublista } from '../common/parametrosublista';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ParametroSublistaTransfer } from '../common/transfer/parametrosublistatransfer';
+import { ParametroSublistaEdit } from '../common/edit/parametrosublistaedit';
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +56,14 @@ deleteParametroSublista(parametroSublistaId: number): Observable<any>{
 postParametroSublista(parametroSubvalor: ParametroSublistaTransfer): Observable<any> {
   return this.httpClient.post<ParametroSublistaTransfer>(this.baseUrl, parametroSubvalor);    
 }
+
+
+updateParametroSublista(parametroSubvalorId: number, parametroSubvalor: ParametroSublistaEdit): Observable<any> {
+  let endPoint = `${this.baseUrl}/${parametroSubvalorId}`;
+  return this.httpClient.put<ParametroSublistaEdit>(endPoint, parametroSubvalor);
+}
+
+
 
 }
 

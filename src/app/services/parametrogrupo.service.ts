@@ -4,6 +4,7 @@ import { ParametroGrupo } from '../common/parametrogrupo';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ParametroGrupoTransfer } from '../common/transfer/parametrogrupotransfer';
+import { ParametroGrupoEdit } from '../common/edit/parametrogrupoedit';
 
 @Injectable({
   providedIn: 'root'
@@ -55,7 +56,10 @@ postParametroGrupo(parametroGrupo: ParametroGrupoTransfer): Observable<any> {
   return this.httpClient.post<ParametroGrupoTransfer>(this.baseUrl, parametroGrupo);    
 }
 
-
+updateParametroGrupo(parametroGrupoId: number, parametroGrupo: ParametroGrupoEdit): Observable<any> {
+  let endPoint = `${this.baseUrl}/${parametroGrupoId}`;
+  return this.httpClient.put<ParametroGrupoEdit>(endPoint, parametroGrupo);
+}
 
 
 }
