@@ -74,9 +74,22 @@ export class EpParametrosubvalorEditarComponent implements OnInit {
     
 
     var parametrosubvalor: ParametroSublistaEdit = new ParametroSublistaEdit();
-    parametrosubvalor.nombre = nombre;
-    parametrosubvalor.diminutivo = diminutivo;
-    parametrosubvalor.info = info;
+    //check undefined
+    if(nombre == ""){
+      parametrosubvalor.nombre = ""+this.parametrosubvalor.nombre;
+    }else{
+      parametrosubvalor.nombre = nombre;
+    }
+    if(diminutivo == ""){
+      parametrosubvalor.diminutivo = ""+this.parametrosubvalor.diminutivo;
+    }else{
+      parametrosubvalor.diminutivo = diminutivo;
+    }
+    if(info == ""){
+      parametrosubvalor.info = ""+this.parametrosubvalor.info;
+    }else{
+      parametrosubvalor.info = info;
+    }
     parametrosubvalor.fechaCreacion = this.parametrosubvalor.fechaCreacion;
 
     //update exercise

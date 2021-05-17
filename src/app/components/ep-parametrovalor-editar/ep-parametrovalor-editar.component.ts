@@ -72,9 +72,22 @@ export class EpParametrovalorEditarComponent implements OnInit {
     
 
     var parametrovalor: ParametroListaEdit = new ParametroListaEdit();
-    parametrovalor.nombre = nombre;
-    parametrovalor.diminutivo = diminutivo;
-    parametrovalor.info = info;
+    //check undefined
+    if(nombre == ""){
+      parametrovalor.nombre = ""+this.parametrovalor.nombre;
+    }else{
+      parametrovalor.nombre = nombre;
+    }
+    if(diminutivo == ""){
+      parametrovalor.diminutivo = ""+this.parametrovalor.diminutivo;
+    }else{
+      parametrovalor.diminutivo = diminutivo;
+    }
+    if(info == ""){
+      parametrovalor.info = ""+this.parametrovalor.info;
+    }else{
+      parametrovalor.info = info;
+    }
     parametrovalor.fechaCreacion = this.parametrovalor.fechaCreacion;
 
     //update exercise

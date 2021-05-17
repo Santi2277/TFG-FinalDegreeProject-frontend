@@ -80,9 +80,26 @@ export class EEjercicioEditarComponent implements OnInit {
     
 
     var ejercicio: EjercicioEdit = new EjercicioEdit();
-    ejercicio.nombre = nombre;
-    ejercicio.descripcionCorta = descripcioncorta;
-    ejercicio.descripcionLarga = descripcionlarga;
+    
+    //check undefined
+    if(nombre == ""){
+      ejercicio.nombre = ""+this.ejercicio.nombre;
+    }else{
+      ejercicio.nombre = nombre;
+    }
+  
+    if(descripcioncorta == ""){
+      ejercicio.descripcionCorta = ""+this.ejercicio.descripcionCorta;
+    }else{
+      ejercicio.descripcionCorta = descripcioncorta;
+    }
+    
+    if(descripcionlarga == ""){
+      ejercicio.descripcionLarga = ""+this.ejercicio.descripcionLarga;
+    }else{
+      ejercicio.descripcionLarga = descripcionlarga;
+    }
+    
     ejercicio.fechaCreacion = this.ejercicio.fechaCreacion;
 
     //update exercise

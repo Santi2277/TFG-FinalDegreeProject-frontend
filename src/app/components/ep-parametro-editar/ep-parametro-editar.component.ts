@@ -73,9 +73,24 @@ export class EpParametroEditarComponent implements OnInit {
     
 
     var parametro: ParametroEdit = new ParametroEdit();
-    parametro.nombre = nombre;
-    parametro.diminutivo = diminutivo;
-    parametro.info = info;
+
+    //check undefined
+    if(nombre == ""){
+      parametro.nombre = ""+this.parametro.nombre;
+    }else{
+      parametro.nombre = nombre;
+    }
+    if(diminutivo == ""){
+      parametro.diminutivo = ""+this.parametro.diminutivo;
+    }else{
+      parametro.diminutivo = diminutivo;
+    }
+    if(info == ""){
+      parametro.info = ""+this.parametro.info;
+    }else{
+      parametro.info = info;
+    }
+    
     parametro.fechaCreacion = this.parametro.fechaCreacion;
 
     //update exercise

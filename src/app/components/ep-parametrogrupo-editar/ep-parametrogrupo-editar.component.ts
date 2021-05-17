@@ -72,9 +72,22 @@ export class EpParametrogrupoEditarComponent implements OnInit {
     
 
     var parametrogrupo: ParametroGrupoEdit = new ParametroGrupoEdit();
-    parametrogrupo.nombre = nombre;
-    parametrogrupo.diminutivo = diminutivo;
-    parametrogrupo.info = info;
+    //check undefined
+    if(nombre == ""){
+      parametrogrupo.nombre = ""+this.parametrogrupo.nombre;
+    }else{
+      parametrogrupo.nombre = nombre;
+    }
+    if(diminutivo == ""){
+      parametrogrupo.diminutivo = ""+this.parametrogrupo.diminutivo;
+    }else{
+      parametrogrupo.diminutivo = diminutivo;
+    }
+    if(info == ""){
+      parametrogrupo.info = ""+this.parametrogrupo.info;
+    }else{
+      parametrogrupo.info = info;
+    }
     parametrogrupo.fechaCreacion = this.parametrogrupo.fechaCreacion;
 
     //update exercise
