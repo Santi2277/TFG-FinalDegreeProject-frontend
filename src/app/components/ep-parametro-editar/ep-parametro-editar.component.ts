@@ -12,7 +12,7 @@ import { ParametroService } from 'src/app/services/parametro.service';
 })
 export class EpParametroEditarComponent implements OnInit {
 
-  parametro: Parametro;
+  parametro: Parametro = new Parametro();
 
   checkoutFormGroup: FormGroup;
 

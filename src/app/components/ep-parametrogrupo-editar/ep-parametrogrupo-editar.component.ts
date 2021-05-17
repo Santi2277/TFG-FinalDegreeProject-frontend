@@ -12,7 +12,7 @@ import { ParametroGrupoService } from 'src/app/services/parametrogrupo.service';
 })
 export class EpParametrogrupoEditarComponent implements OnInit {
 
-  parametrogrupo: ParametroGrupo;
+  parametrogrupo: ParametroGrupo  = new ParametroGrupo();
 
   checkoutFormGroup: FormGroup;
 

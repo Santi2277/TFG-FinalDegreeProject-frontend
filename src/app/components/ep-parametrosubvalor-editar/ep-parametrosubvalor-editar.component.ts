@@ -12,7 +12,7 @@ import { ParametroSublistaService } from 'src/app/services/parametrosublista.ser
 })
 export class EpParametrosubvalorEditarComponent implements OnInit {
 
-  parametrosubvalor: ParametroSublista;
+  parametrosubvalor: ParametroSublista = new ParametroSublista();
 
   checkoutFormGroup: FormGroup;
 

@@ -12,7 +12,7 @@ import { ParametroListaService } from 'src/app/services/parametrolista.service';
 })
 export class EpParametrovalorEditarComponent implements OnInit {
 
-  parametrovalor: ParametroLista;
+  parametrovalor: ParametroLista = new ParametroLista();
 
   checkoutFormGroup: FormGroup;
 

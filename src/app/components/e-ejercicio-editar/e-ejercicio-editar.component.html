@@ -11,21 +11,21 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" formControlName="nombre">
+                    <input type="text" class="form-control" formControlName="nombre" value="{{ ejercicio.nombre }}">
                 </div>
             </div>
 
             <div class="mb-3 row">
               <label class="col-sm-2 col-form-label">Descripción corta:</label>
               <div class="col-sm-4">
-                  <input type="text" class="form-control" formControlName="descripcioncorta">
+                  <input type="text" class="form-control" formControlName="descripcioncorta" value="{{ ejercicio.descripcionCorta }}">
               </div>
           </div>
 
           <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Descripcion larga:</label>
             <div class="col-sm-4">
-                <textarea class="form-control" formControlName="descripcionlarga"></textarea>
+                <textarea class="form-control" formControlName="descripcionlarga" value="{{ ejercicio.descripcionLarga }}"></textarea>
             </div>
         </div>
       

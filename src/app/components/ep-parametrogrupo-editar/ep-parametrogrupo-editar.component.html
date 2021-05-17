@@ -11,21 +11,21 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" formControlName="nombre">
+                    <input type="text" class="form-control" formControlName="nombre" value="{{ parametrogrupo.nombre }}">
                 </div>
             </div>
 
             <div class="mb-3 row">
               <label class="col-sm-2 col-form-label">Diminutivo:</label>
               <div class="col-sm-4">
-                  <input type="text" class="form-control" formControlName="diminutivo">
+                  <input type="text" class="form-control" formControlName="diminutivo" value="{{ parametrogrupo.diminutivo }}">
               </div>
           </div>
 
           <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Info:</label>
             <div class="col-sm-4">
-                <textarea class="form-control" formControlName="info"></textarea>
+                <textarea class="form-control" formControlName="info" value="{{ parametrogrupo.info }}"></textarea>
             </div>
         </div>
       
