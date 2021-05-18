@@ -18,7 +18,7 @@ export class EjercicioService {
   getEjercicio(ejercicioId: number): Observable<Ejercicio> {
     // need to build URL based on exercise id
     const ejercicioUrl = `${this.baseUrl}/${ejercicioId}`;
-    return this.httpClient.get<Ejercicio>(ejercicioUrl);
+    return this.httpClient.get<Ejercicio>(ejercicioUrl+"?projection=inlineEjercicioPerfil");
   }
 
   getEjercicioList(thePage: number, thePageSize: number): Observable<GetResponse> {

@@ -44,7 +44,7 @@ export class ParametroListaService {
  getParametroLista(parametroListaId: number): Observable<ParametroLista> {
   // need to build URL based on parametro Lista id
   const parametroListaUrl = `${this.baseUrl}/${parametroListaId}`;
-  return this.httpClient.get<ParametroLista>(parametroListaUrl);
+  return this.httpClient.get<ParametroLista>(parametroListaUrl+"?projection=inlineParametroListaPerfil");
 }
 
 

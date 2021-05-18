@@ -43,7 +43,7 @@ export class ParametroGrupoService {
  getParametroGrupo(parametroGrupoId: number): Observable<ParametroGrupo> {
   // need to build URL based on parametro Grupo id
   const parametroGrupoUrl = `${this.baseUrl}/${parametroGrupoId}`;
-  return this.httpClient.get<ParametroGrupo>(parametroGrupoUrl);
+  return this.httpClient.get<ParametroGrupo>(parametroGrupoUrl+"?projection=inlineParametroGrupoPerfil");
 }
 
 

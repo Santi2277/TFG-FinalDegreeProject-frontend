@@ -54,6 +54,8 @@ import { EpParametrosubvalorBuscarComponent } from './components/ep-parametrosub
 import { EpParametrosubvalorCrearComponent } from './components/ep-parametrosubvalor-crear/ep-parametrosubvalor-crear.component';
 import { EpParametrosubvalorDetalleComponent } from './components/ep-parametrosubvalor-detalle/ep-parametrosubvalor-detalle.component';
 import { EpParametrosubvalorEditarComponent } from './components/ep-parametrosubvalor-editar/ep-parametrosubvalor-editar.component';
+import { EedAnadirparametrovalorComponent } from './components/eed-anadirparametrovalor/eed-anadirparametrovalor.component';
+import { EedAnadirparametrosubvalorComponent } from './components/eed-anadirparametrosubvalor/eed-anadirparametrosubvalor.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: any, injector: { get: (arg0: typeof Router) => any; }) => {
@@ -104,6 +106,8 @@ const routes: Routes = [
   {path: 'entrenador/parametro/parametrosubvalor/crear', component: EpParametrosubvalorCrearComponent, canActivate: [OktaAuthGuard]},
   {path: 'entrenador/parametro/parametrosubvalor/detalle/:id', component: EpParametrosubvalorDetalleComponent, canActivate: [OktaAuthGuard]},
   {path: 'entrenador/parametro/parametrosubvalor/editar/:id', component: EpParametrosubvalorEditarComponent, canActivate: [OktaAuthGuard]},
+  {path: 'entrenador/ejercicio/detalle/anadirparametrovalor/:id', component: EedAnadirparametrovalorComponent, canActivate: [OktaAuthGuard]},
+  {path: 'entrenador/ejercicio/detalle/anadirparametrosubvalor/:id', component: EedAnadirparametrosubvalorComponent, canActivate: [OktaAuthGuard]},
   {path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: '**', redirectTo: '/main', pathMatch: 'full'}
 ];
@@ -149,7 +153,9 @@ const routes: Routes = [
     EpParametrosubvalorBuscarComponent,
     EpParametrosubvalorCrearComponent,
     EpParametrosubvalorDetalleComponent,
-    EpParametrosubvalorEditarComponent
+    EpParametrosubvalorEditarComponent,
+    EedAnadirparametrovalorComponent,
+    EedAnadirparametrosubvalorComponent
   ],
   imports: [
     BrowserModule,

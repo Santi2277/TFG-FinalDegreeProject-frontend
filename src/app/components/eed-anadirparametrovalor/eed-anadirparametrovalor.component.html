@@ -1,0 +1,66 @@
+
+<div class="container"> 
+    <h4>Añadir Valor de Parámetro:</h4>
+
+    <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+        <div formGroupName="parametro1" class="form-area">
+            <div class="mb-3 row">
+                
+                <label class="col-sm-2 col-form-label">Parametro 1</label>
+                <div class="col-sm-4">
+                    <select class="form-select" formControlName="parametro1" (change)="onChangeP1()">
+                        <option selected value=""></option>
+                        <option *ngFor="let tempParametro of parametros1" value="{{ tempParametro.id}}">{{ tempParametro.nombre}}</option>
+                    </select>
+                </div>
+                
+                <label class="col-sm-2 col-form-label">Parametro Grupo 1</label>
+                <div class="col-sm-4">
+                    <select class="form-select" formControlName="parametrogrupo1" (change)="onChangePG1()">
+                        <option selected value=""></option>
+                        <option [ngValue]="tempParametroGrupo" *ngFor="let tempParametroGrupo of parametroGrupos1" value="{{ tempParametroGrupo.id}}">{{ tempParametroGrupo.nombre}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Parametro Valor 1</label>
+                <div class="col-sm-4">
+                    <select class="form-select" formControlName="parametrovalor1">
+                        <option selected value=""></option>
+                        <option [ngValue]="tempParametroValor" *ngFor="let tempParametroValor of parametroValores1" value="{{ tempParametroValor.id}}">{{ tempParametroValor.nombre}}</option>
+                    </select>
+                </div>
+   
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-secondary" >Buscar</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <a class="back-button" routerLink="/entrenador/ejercicio/detalle/{{ejercicio.id}}">
+        <i class="far fa-arrow-alt-circle-left fa-3x"></i>
+    </a>
+</div>
+
+

@@ -34,20 +34,95 @@
 </div>
 
 
-
-
-
 <div class="container mt-4">
 <a class="back-button" routerLink="/entrenador/ejercicio/editar/{{ejercicio.id}}" title="editar">
     <i class="fas fa-edit fa-2x "></i>
 </a>
 </div>
 
-
-
 <div class="container mt-4">
     <button (click)="testButton()" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
 </div>
+
+
+
+
+
+
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::  -->
+<!-- ::::::::::::      TABLE       ::::::::::::  -->
+<!-- ::::::::::::::::::::::::::::::::::::::::::  -->
+
+
+
+<div class="container mt-4">
+
+<div class="row align-items-start">
+
+    <div class="col-5">
+
+        <div class="d-flex flex-row">
+            <h5>Parámetros (valor):</h5>
+        
+            <a class="back-button px-4" routerLink="/entrenador/ejercicio/detalle/anadirparametrovalor/{{ejercicio.id}}" title="añadir">
+                <i class="fas fa-plus-square fa-2x "></i>
+            </a>
+        </div>
+
+        <table class="table table-light table-bordered table-sm mt-2">
+          <thead>
+                <tr>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tempParametroListas of ejercicio.parametroListas">
+                    <td>{{ tempParametroListas.nombre}}</td>
+                    <td>
+                        <button (click)="borrarParametroDeEjercicio(tempParametroListas.id)" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="col-2"></div>
+
+    <div class="col-5">
+
+        <div class="d-flex flex-row">
+            <h5>Parámetros (subvalor):</h5>
+            <a class="back-button px-4" routerLink="/entrenador/ejercicio/detalle/anadirparametrosubvalor/{{ejercicio.id}}" title="añadir">
+                <i class="fas fa-plus-square fa-2x "></i>
+            </a>       
+        </div>
+
+        <table class="table table-light table-bordered table-sm mt-2">
+            <thead>
+                <tr>
+                    <th scope="col">Subvalor</th>
+                    <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tempParametroSublistas of ejercicio.parametroSublistas">
+                    <td>{{ tempParametroSublistas.nombre}}</td>
+                    <td>
+                        <button (click)="borrarParametroDeEjercicio(tempParametroSublistas.id)" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>	
+    
+    </div>
+
+</div>
+</div>
+
+
 
 <div class="d-grid gap-2 col-6 mx-auto mt-2">
     <div class="d-grid gap-2 d-md-block">

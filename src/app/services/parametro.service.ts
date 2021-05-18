@@ -43,7 +43,7 @@ export class ParametroService {
  getParametro(parametroId: number): Observable<Parametro> {
   // need to build URL based on parametro id
   const parametroUrl = `${this.baseUrl}/${parametroId}`;
-  return this.httpClient.get<Parametro>(parametroUrl);
+  return this.httpClient.get<Parametro>(parametroUrl+"?projection=inlineParametroPerfil");
 }
 
 

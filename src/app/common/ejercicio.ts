@@ -1,4 +1,6 @@
 import { EjercicioGrupo } from "./ejerciciogrupo";
+import { ParametroLista } from "./parametrolista";
+import { ParametroSublista } from "./parametrosublista";
 import { Perfil } from "./perfil";
 
 export class Ejercicio {
@@ -13,4 +15,6 @@ export class Ejercicio {
         ejercicioGrupo: EjercicioGrupo;
         creador: Perfil;
         modificador: Perfil;
+        parametroListas: ParametroLista[];
+        parametroSublistas: ParametroSublista[];
 }

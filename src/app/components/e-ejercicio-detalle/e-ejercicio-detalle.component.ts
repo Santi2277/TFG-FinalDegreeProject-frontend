@@ -29,6 +29,7 @@ export class EEjercicioDetalleComponent implements OnInit {
     this.ejercicioService.getEjercicio(ejercicioIdNumber).subscribe(
       data => {
         this.ejercicio = data;
+
       }
     )
   }
@@ -49,5 +50,12 @@ export class EEjercicioDetalleComponent implements OnInit {
   );;
   }
 
+  borrarParametroDeEjercicio(parametroListaId: number){
+    console.log("antes de borrar parametro de ejercicio. Id parametro lista: "+parametroListaId);
+    
+
+
+
+  }
 
 }

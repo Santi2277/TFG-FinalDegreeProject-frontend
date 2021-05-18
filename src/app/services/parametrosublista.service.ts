@@ -44,7 +44,7 @@ export class ParametroSublistaService {
  getParametroSublista(parametroSublistaId: number): Observable<ParametroSublista> {
   // need to build URL based on parametro Sublista id
   const parametroSublistaUrl = `${this.baseUrl}/${parametroSublistaId}`;
-  return this.httpClient.get<ParametroSublista>(parametroSublistaUrl);
+  return this.httpClient.get<ParametroSublista>(parametroSublistaUrl+"?projection=inlineParametroSublistaPerfil");
 }
 
 
