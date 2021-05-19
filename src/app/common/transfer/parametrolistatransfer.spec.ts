@@ -1,7 +1,7 @@
-import { Parametrolistatransfer } from './parametrolistatransfer';
+import { ParametroListaTransfer } from './parametrolistatransfer';
 
 describe('Parametrolistatransfer', () => {
   it('should create an instance', () => {
-    expect(new Parametrolistatransfer()).toBeTruthy();
+    expect(new ParametroListaTransfer()).toBeTruthy();
   });
 });

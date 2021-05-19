@@ -12,6 +12,7 @@ import { ParametroListaEdit } from '../common/edit/parametrolistaedit';
 export class ParametroListaService {
 
   private baseUrl = 'http://localhost:8080/api/parametrolistas';
+  private basicUrl = 'http://localhost:8080/api';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -64,6 +65,12 @@ updateParametroLista(parametroValorId: number, parametroValor: ParametroListaEdi
   return this.httpClient.put<ParametroListaEdit>(endPoint, parametroValor);
 }
 
+postParametroGrupoToParametroLista(parametroListaId: number, parametroGrupoId: number): Observable<any> {
+  let endPoint = `${this.basicUrl}/parametrogrupos/${parametroGrupoId}/parametroListas`;
+  let headers = { 'content-type': 'text/uri-list'};
+  const body=`${this.basicUrl}/parametrolistas/${parametroListaId}`;
+  return this.httpClient.post(endPoint, body, {'headers': headers});    
+}
 
 
 

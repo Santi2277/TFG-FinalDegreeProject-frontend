@@ -95,7 +95,7 @@ export class EpParametrovalorCrearComponent implements OnInit {
     parametroValor.nombre = nombre;
     parametroValor.diminutivo = diminutivo;
     parametroValor.info = info;
-    parametroValor.parametroGrupo = this.baseUrl+"parametrogrupos/"+parametrogrupo;
+    //parametroValor.parametroGrupo = this.baseUrl+"parametrogrupos/"+parametrogrupo;
     parametroValor.creador = this.baseUrl+"perfiles/"+creador;
 
 
@@ -103,8 +103,25 @@ export class EpParametrovalorCrearComponent implements OnInit {
     this.parametroListaService.postParametroLista(parametroValor).subscribe({
       next: response => {
         alert(`Parametro Valor creado con éxito.\nNombre: ${response.nombre}`);
+        
+        this.parametroListaService.postParametroGrupoToParametroLista(response.id, parametrogrupo).subscribe({
+          next: response => {
+            alert(`Parámetro Grupo añadido con éxito al valor de parámetro creado`);
+            
+    
+          },
+          error: err => {
+            alert(`Hubo un error: ${err.message}`);
+          }
+        }
+      );
+        
+        
+        
+        
+        
         //redirect
-      this.router.navigateByUrl('/entrenador/parametro/parametrovalor/detalle/'+response.id);
+        this.router.navigateByUrl('/entrenador/parametro/parametrovalor/detalle/'+response.id);
 
       },
       error: err => {
