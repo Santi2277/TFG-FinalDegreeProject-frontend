@@ -186,7 +186,18 @@ export class EedAnadirparametrosubvalorComponent implements OnInit {
 
     console.log("ONSUBMIT "+" pv1: "+parametrovalor1+ " ps1: "+parametrosubvalor1);
 
-    
+    this.ejercicioService.postParametroSublistaToEjercicio(this.ejercicio.id, parametrosubvalor1).subscribe({
+      next: response => {
+        alert(`Subvalor de parámetro añadido con éxito.`);
+        //redirect
+      this.router.navigateByUrl('/entrenador/ejercicio/detalle/'+this.ejercicio.id);
+
+      },
+      error: err => {
+        alert(`Hubo un error: ${err.message}`);
+      }
+    }
+  );
 
 
 

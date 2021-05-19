@@ -81,7 +81,7 @@
                 <tr *ngFor="let tempParametroListas of ejercicio.parametroListas">
                     <td>{{ tempParametroListas.nombre}}</td>
                     <td>
-                        <button (click)="borrarParametroDeEjercicio(tempParametroListas.id)" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
+                        <button (click)="borrarParametroListaDeEjercicio(tempParametroListas.id)" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
                     </td>
                 </tr>
             </tbody>
@@ -111,7 +111,7 @@
                 <tr *ngFor="let tempParametroSublistas of ejercicio.parametroSublistas">
                     <td>{{ tempParametroSublistas.nombre}}</td>
                     <td>
-                        <button (click)="borrarParametroDeEjercicio(tempParametroSublistas.id)" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
+                        <button (click)="borrarParametroSublistaDeEjercicio(tempParametroSublistas.id)" title="borrar"><i class="fas fa-trash-alt fa-2x remove button-styled"></i></button> 
                     </td>
                 </tr>
             </tbody>

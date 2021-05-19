@@ -47,13 +47,46 @@ export class EEjercicioDetalleComponent implements OnInit {
         alert(`Hubo un error: ${err.message}`);
       }
     }
-  );;
+    );
   }
 
-  borrarParametroDeEjercicio(parametroListaId: number){
+  borrarParametroListaDeEjercicio(parametroListaId: number){
     console.log("antes de borrar parametro de ejercicio. Id parametro lista: "+parametroListaId);
     
+    this.ejercicioService.deleteParametroListaFromEjercicio(this.ejercicio.id, parametroListaId).subscribe({
+      next: response => {
+        alert(`Valor de parámetro borrado`);
+        //reload
+        window.location.reload();
 
+      },
+      error: err => {
+        alert(`Hubo un error: ${err.message}`);
+      }
+    }
+    );
+
+
+  }
+
+
+
+  borrarParametroSublistaDeEjercicio(parametroSublistaId: number){
+    console.log("antes de borrar parametro de ejercicio. Id parametro lista: "+parametroSublistaId);
+    
+    this.ejercicioService.deleteParametroSublistaFromEjercicio(this.ejercicio.id, parametroSublistaId).subscribe({
+      next: response => {
+        alert(`Subvalor de parámetro borrado`);
+        
+        //reload
+        window.location.reload();
+
+      },
+      error: err => {
+        alert(`Hubo un error: ${err.message}`);
+      }
+    }
+    );
 
 
   }

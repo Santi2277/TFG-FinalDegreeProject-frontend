@@ -153,7 +153,18 @@ export class EedAnadirparametrovalorComponent implements OnInit {
 
     console.log("ONSUBMIT "+parametrovalor1);
 
-    
+    this.ejercicioService.postParametroListaToEjercicio(this.ejercicio.id, parametrovalor1).subscribe({
+      next: response => {
+        alert(`Valor de parámetro añadido con éxito.`);
+        //redirect
+      this.router.navigateByUrl('/entrenador/ejercicio/detalle/'+this.ejercicio.id);
+
+      },
+      error: err => {
+        alert(`Hubo un error: ${err.message}`);
+      }
+    }
+  );
 
 
 

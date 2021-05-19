@@ -12,6 +12,7 @@ import { EjercicioEdit } from '../common/edit/ejercicioedit';
 export class EjercicioService {
 
   private baseUrl = 'http://localhost:8080/api/ejercicios';
+  private basicUrl = 'http://localhost:8080/api';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -50,6 +51,28 @@ export class EjercicioService {
     return this.httpClient.put<EjercicioEdit>(endPoint, ejercicio);
   }
 
+  deleteParametroListaFromEjercicio(ejercicioId: number, parametroListaId: number): Observable<any>{
+    let endPoint = `${this.baseUrl}/${ejercicioId}/parametroListas/${parametroListaId}`;
+    return this.httpClient.delete(endPoint);
+  }
+  deleteParametroSublistaFromEjercicio(ejercicioId: number, parametroSublistaId: number): Observable<any>{
+    let endPoint = `${this.baseUrl}/${ejercicioId}/parametroSublistas/${parametroSublistaId}`;
+    return this.httpClient.delete(endPoint);
+  }
+
+  postParametroListaToEjercicio(ejercicioId: number, parametroListaId: string): Observable<any> {
+    let endPoint = `${this.baseUrl}/${ejercicioId}/parametroListas`;
+    let headers = { 'content-type': 'text/uri-list'};
+    const body=`${this.basicUrl}/parametrolistas/${parametroListaId}`;
+    return this.httpClient.post(endPoint, body, {'headers': headers});    
+  }
+
+  postParametroSublistaToEjercicio(ejercicioId: number, parametroSublistaId: string): Observable<any> {
+    let endPoint = `${this.baseUrl}/${ejercicioId}/parametroSublistas`;
+    let headers = { 'content-type': 'text/uri-list'};
+    const body=`${this.basicUrl}/parametrosublistas/${parametroSublistaId}`;
+    return this.httpClient.post(endPoint, body, {'headers': headers});    
+  }
 
 
 
