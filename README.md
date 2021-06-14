@@ -6,6 +6,10 @@ This is the frontend of a 1st release of an application of training exercises, u
 
 https://www.youtube.com/watch?v=2gm5a_ZPhYw
 
+## License
+
+https://creativecommons.org/licenses/by-nc-nd/3.0/es/
+
 ## Info
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
