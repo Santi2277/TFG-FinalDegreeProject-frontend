@@ -1,4 +1,12 @@
-# UocTfgFrontend
+# TFG-FinalDegreeProject-frontend 
+
+This is the frontend of a 1st release of an application of training exercises, uploaded collaboratively by personal trainers, developed with Java Spring Boot, Angular and Bootstrap. Part of my TFG (Final Degree Project).
+
+## Functional Video - Sample application 1st release video
+
+https://www.youtube.com/watch?v=2gm5a_ZPhYw
+
+## Info
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
 
